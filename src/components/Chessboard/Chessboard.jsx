@@ -7,7 +7,7 @@ const Chessboard = () => {
       <h1>Chessboard</h1>
       <div className="grid grid-cols-8">
         {Array.from({ length: numberSquares }).map((_, index) => (
-          <Square key={index} />
+          <Square key={index} color={"indigo"} />
         ))}
       </div>
     </div>
