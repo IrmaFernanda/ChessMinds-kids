@@ -1,9 +1,9 @@
-import Board from "./components/Board";
+import MainMenu from "./pages/MainMenu";
 
 function App() {
   return (
-    <div className="w-fit h-fit">
-      <Board />
+    <div className="w-full h-screen">
+      <MainMenu />
     </div>
   );
 }
