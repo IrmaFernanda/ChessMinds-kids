@@ -4,24 +4,22 @@ const optionsMenu = [
   {
     id: 11,
     label: "Tutorial",
-    path: "/tutorial"
+    path: "/tutorial",
   },
   {
     id: 12,
     label: "Ejercicios",
-    path: "/exercises"
+    path: "/exercises",
   },
-]
+];
 
 const Menu = () => {
   return (
     <>
-      <div className="flex flex-col gap-[25px]">
-        {
-          optionsMenu.map(({ id, label, path }) => (
-            <Button key={id} label={label} path={path} />
-          ))
-        }
+      <div className="flex flex-col gap-[35px] items-center">
+        {optionsMenu.map(({ id, label, path }) => (
+          <Button key={id} label={label} path={path} />
+        ))}
       </div>
     </>
   );

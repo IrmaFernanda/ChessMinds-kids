@@ -1,12 +1,17 @@
-import image from "../assets/pngegg (1).png";
 import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export default function Button({ label, path }) {
   return (
     <NavLink to={path}>
-      <button className="bg-gray-600 text-white py-2 px-4 rounded-md mb-2">
+      <button className="bg-gray-600 text-[35px] text-white p-3 rounded-md">
         {label}
       </button>
     </NavLink>
   );
 }
+
+Button.propTypes = {
+  label: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
+};
