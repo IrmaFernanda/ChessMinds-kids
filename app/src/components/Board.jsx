@@ -22,7 +22,7 @@ const Board = () => {
 
   return (
     <>
-      <div className="grid gap-1 grid-cols-9">
+      <div className="grid gap-5 grid-cols-9">
         <div className="grid gap-1 grid-rows-8">
           {rows.map((row) => {
             return (

@@ -3,14 +3,9 @@ import ButtonGame from "./ButtonGame";
 const infoCards = [
   {
     id: 101,
-    title: "Mates en 1",
+    title: "Mates",
     description:
       "Un movimiento que pone al rey adversario en jaque mate de inmediato.",
-  },
-  {
-    id: 102,
-    title: "Mates en 2",
-    description: "Dos movimientos consecutivos que conducen al jaque mate.",
   },
   {
     id: 103,
@@ -20,22 +15,23 @@ const infoCards = [
   },
   {
     id: 104,
-    title: "Eliminación de la defensa",
+    title: "Pieza atrapada",
     description:
       "Capturar una pieza clave que defiende a otra,debilitando la posición defensica del oponente.",
   },
   {
     id: 105,
-    title: "Combinacion de tablas",
+    title: "Ataque a la decubierta",
     description:
       "Estratejias para forzar un empate en situaciones tácticas, como la repetición de movimientos o la falta de material para realizar un jaque mate.",
   },
   {
-    id: 106,
+    id: 102,
     title: "Ataque doble",
     description:
       "Un movimiento que amenaza dos piezas simultáneamente, forzando al oponente a elegir cual defender.",
   },
+
 ];
 
 const CardsList = () => {
