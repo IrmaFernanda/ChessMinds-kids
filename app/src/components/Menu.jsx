@@ -3,13 +3,18 @@ import Button from "./Button";
 const optionsMenu = [
   {
     id: 11,
-    label: "Tutorial",
+    label: "TUTORIAL DE PIEZAS",
     path: "/tutorial",
   },
   {
     id: 12,
-    label: "Ejercicios",
-    path: "/exercises",
+    label: "TEMAS TACTICOS",
+    path: "/menuexercise",
+  },
+  {
+    id: 13,
+    label: "EJERCICIOS",
+    path: "/menuexercise",
   },
 ];
 

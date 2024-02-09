@@ -4,10 +4,10 @@ import Button from "../components/Button";
 const PlayMenuPage = () => {
   return (
     <>
-      <div className="h-screen bg-gray-800 flex flex-col items-center justify-center gap-6">
+      <div className="h-screen bg-green-700 flex flex-col items-center justify-center gap-6">
         <CartList />
         <div className="flex w-full justify-center">
-          <Button label="Regresar" path="/home" />
+          <Button label="REGRESAR" path="/home" />
         </div>
       </div>
     </>
@@ -15,4 +15,3 @@ const PlayMenuPage = () => {
 };
 
 export default PlayMenuPage;
-
