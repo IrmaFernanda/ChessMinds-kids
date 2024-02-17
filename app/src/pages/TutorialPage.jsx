@@ -1,11 +1,12 @@
-import Board from '../components/Board'
+import Board from "../components/Board";
 
 const TutorialPage = () => {
   return (
-    <div>
-        <Board />
+    <div className="flex justify-center items-center h-screen">
+      <Board />
     </div>
-  )
-}
+  );
+};
 
-export default TutorialPage
+export default TutorialPage;
+

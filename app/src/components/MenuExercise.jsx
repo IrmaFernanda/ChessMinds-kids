@@ -18,7 +18,7 @@ const optionsMenuExercise = [
   },
 ];
 
-const Menu = () => {
+const MenuExercise = () => {
   return (
     <>
       <div className="flex flex-col gap-[35px] items-center">
@@ -30,4 +30,5 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+export default MenuExercise;
+
