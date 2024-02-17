@@ -20,11 +20,11 @@ export const Sidebar = ({ className, children, ...props }: ComponentProps<'aside
   )
 }
 
-export const Content = forwardRef<HTMLDivElement, ComponentProps<'div'>>(
+export const Content = forwardRef<HTMLDivElement, ComponentProps<'section'>>(
   ({ className, children, ...props }, ref) => (
-    <div ref={ref} className={twMerge('flex-1 overflow-auto', className)} {...props}>
+    <section ref={ref} className={twMerge('flex-1 overflow-auto', className)} {...props}>
       {children}
-    </div>
+    </section>
   )
 )
 
