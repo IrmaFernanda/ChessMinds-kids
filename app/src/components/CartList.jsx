@@ -31,7 +31,6 @@ const infoCards = [
     description:
       "Un movimiento que amenaza dos piezas simultáneamente, forzando al oponente a elegir cual defender.",
   },
-
 ];
 
 const CardsList = () => {
@@ -45,4 +44,3 @@ const CardsList = () => {
 };
 
 export default CardsList;
-

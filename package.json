@@ -6,11 +6,24 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "dev:watch": "npx electronmon --trace-warnings ."
+    "dev:watch": "npx electronmon --trace-warnings .",
+    "dist": "electron-builder"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "electron": "^28.2.1"
+    "electron": "^28.2.2",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.chessminds.app",
+    "productName": "chessminds",
+    "target": "NSIS",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "NSIS"
+    }
   }
 }
