@@ -4,7 +4,17 @@
 
 @layer base {
   #root {
+    --tile-size: 100px;
+    --light-tile: #f0d8b7;
+    --dark-tile: #b48764;
+    --bg-color: #202020;
     @apply h-full;
+  }
+
+  @media all and (max-width: 450px) {
+    :root {
+      --tile-size: 50px;
+    }
   }
 
   html,
