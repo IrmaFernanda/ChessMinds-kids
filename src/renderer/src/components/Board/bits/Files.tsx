@@ -1,10 +1,10 @@
-import React from 'react'
+import { getCharacter } from '@renderer/helper'
 
 export const Files = ({ className, files }) => {
   return (
     <div className={className}>
       {files.map((file) => (
-        <span key={file}>{file}</span>
+        <span key={file}>{getCharacter(file)}</span>
       ))}
     </div>
   )
