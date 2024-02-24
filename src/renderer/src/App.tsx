@@ -1,19 +1,39 @@
-import { ActionButtonsRow, Content, DraggableTopBar, RootLayout, Sidebar } from '@/components'
+import { gameSubject, initGame, resetGame } from '@shared/Game'
+import { useEffect, useState } from 'react'
 import { Board } from './components/Board/Board'
 
 const App = () => {
+  const [board, setBoard] = useState([])
+  const [isGameOver, setIsGameOver] = useState()
+  const [result, setResult] = useState()
+  const [turn, setTurn] = useState()
+
+  useEffect(() => {
+    initGame()
+    const subscribe = gameSubject.subscribe((game) => {
+      setBoard(game.board())
+      setIsGameOver(game.isGameOver)
+      setResult(game.result)
+      setTurn(game.turn)
+    })
+    return () => subscribe.unsubscribe()
+  }, [])
+
   return (
-    <>
-      <DraggableTopBar />
-      <RootLayout>
-        <Sidebar className="p-2">
-          <ActionButtonsRow className="flex justify-between mt-1" />
-        </Sidebar>
-        <Content className="flex justify-center border-l bg-zinc-900/50 border-l-white/20 h-screen">
-          <Board />
-        </Content>
-      </RootLayout>
-    </>
+    <div className="container">
+      {isGameOver && (
+        <h2 className="vertical-text">
+          GAME OVER
+          <button onClick={resetGame}>
+            <span className="vertical-text">NEW GAME</span>
+          </button>
+        </h2>
+      )}
+      <div className="board-container">
+        <Board board={board} turn={turn} />
+      </div>
+      {result && <p className="game-result">{result}</p>}
+    </div>
   )
 }
 export default App

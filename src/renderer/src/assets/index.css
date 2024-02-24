@@ -1,40 +1,122 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* @tailwind base; */
+/* @tailwind components; */
+/* @tailwind utilities; */
+/**/
+/* @layer base { */
+/*   #root { */
+/*     --tile-size: 100px; */
+/*     --light-tile: #f0d8b7; */
+/*     --dark-tile: #b48764; */
+/*     --bg-color: #202020; */
+/*     @apply h-full; */
+/*   } */
+/**/
+/*   @media all and (max-width: 450px) { */
+/*     :root { */
+/*       --tile-size: 50px; */
+/*     } */
+/*   } */
+/**/
+/*   html, */
+/*   body { */
+/*     @apply h-full; */
+/**/
+/*     @apply select-none; */
+/**/
+/*     @apply bg-lime-900; */
+/**/
+/*     @apply font-mono antialiased text-white; */
+/**/
+/*     @apply overflow-hidden; */
+/*   } */
+/**/
+/*   header { */
+/*     -webkit-app-region: drag; */
+/*   } */
+/**/
+/*   button { */
+/*     -webkit-app-region: no-drag; */
+/*   } */
+/* } */
 
-@layer base {
-  #root {
-    --tile-size: 100px;
-    --light-tile: #f0d8b7;
-    --dark-tile: #b48764;
-    --bg-color: #202020;
-    @apply h-full;
-  }
+* {
+  margin: 0;
+  padding: 0;
+}
 
-  @media all and (max-width: 450px) {
-    :root {
-      --tile-size: 50px;
-    }
-  }
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(34, 34, 34);
+}
 
-  html,
-  body {
-    @apply h-full;
+.board-container {
+  width: 600px;
+  height: 600px;
+}
 
-    @apply select-none;
+.board {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
 
-    @apply bg-lime-900;
+.square {
+  width: 12.5%;
+  height: 12.5%;
+}
 
-    @apply font-mono antialiased text-white;
+.promote-square {
+  width: 50%;
+  height: 50%;
+}
 
-    @apply overflow-hidden;
-  }
+.square-black {
+  background: #b59963;
+}
 
-  header {
-    -webkit-app-region: drag;
-  }
+.square-white {
+  background: #f0d9b5;
+}
 
-  button {
-    -webkit-app-region: no-drag;
-  }
+.board-square {
+  width: 100%;
+  height: 100%;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.piece-container {
+  cursor: grab;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.piece {
+  max-width: 70%;
+  max-height: 70%;
+}
+
+.vertical-text {
+  text-orientation: upright;
+  writing-mode: vertical-lr;
+  font-family: sans-serif;
+  padding: 10px;
+  color: white;
+}
+
+.vertical-text button {
+  margin-top: 20px;
+  cursor: pointer;
+  background: rgb(63, 63, 63);
+  border: 2px solid white;
+  border-radius: 10px;
 }

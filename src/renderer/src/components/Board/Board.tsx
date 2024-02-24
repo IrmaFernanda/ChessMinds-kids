@@ -1,39 +1,37 @@
-import { getCharacter } from '@renderer/helper'
-import { twMerge } from 'tailwind-merge'
-import { Ranks } from './bits/Ranks'
-import { Files } from './bits/Files'
-import { Pieces } from './Pieces/Pieces'
+import { useEffect, useState } from 'react'
+import { BoardSquare } from './BoardSquare'
 
-export const Board = () => {
-  const getClassName = (i, j) => {
-    return (i + j) % 2 === 0 ? 'bg-[#f0d8b7]' : 'bg-[#b48764]'
+export const Board = ({ board, turn }) => {
+  const [currBoard, setCurrBoard] = useState([])
+
+  useEffect(() => {
+    setCurrBoard(turn === 'w' ? board.flat() : board.flat().reverse())
+  }, [board, turn])
+
+  const getXYPosition = (i) => {
+    const x = turn === 'w' ? i % 8 : Math.abs((i % 8) - 7)
+    const y = turn === 'w' ? Math.abs(Math.floor(i / 8) - 7) : Math.floor(i / 8)
+    return { x, y }
   }
 
-  const ranks = Array(8)
-    .fill()
-    .map((x, i) => 8 - i)
-  const files = Array(8)
-    .fill()
-    .map((x, i) => i + 1)
+  const isBlack = (i) => {
+    const { x, y } = getXYPosition(i)
+    return (x + y) % 2 === 1
+  }
+
+  const getPosition = (i) => {
+    const { x, y } = getXYPosition(i)
+    const letter = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'][x]
+    return `${letter}${y + 1}`
+  }
 
   return (
-    <div
-      className="grid h-screen"
-      style={{ gridTemplateColumns: 'calc(0.25 * 100px) calc(8 * 100px)' }}
-    >
-      <Ranks className="flex flex-col items-center justify-around" ranks={ranks} />
-      <div className="grid grid-cols-8 grid-rows-8 ">
-        {ranks.map((rank, i) =>
-          files.map((file, j) => (
-            <div
-              key={file + '-' + rank}
-              className={twMerge('size-[100px] text-black', getClassName(9 - i, j))}
-            ></div>
-          ))
-        )}
-      </div>
-      <Pieces />
-      <Files className="flex h-.25-100px col-[2] items-center justify-around" files={files} />
+    <div className="board">
+      {currBoard.map((piece, i) => (
+        <div key={i} className="square">
+          <BoardSquare piece={piece} black={isBlack(i)} position={getPosition(i)} />
+        </div>
+      ))}
     </div>
   )
 }
