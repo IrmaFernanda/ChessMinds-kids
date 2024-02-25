@@ -1,22 +1,25 @@
-import { gameSubject, handleMove } from '@shared/Game'
-import { useEffect, useState } from 'react'
-import { useDrop } from 'react-dnd'
+import { TypeDrop, TypeGame, TypePiece } from '@shared/models'
+import { Piece } from './Piece'
 import { Square } from './Square'
-import Piece from './Piece'
+import { useDrop } from 'react-dnd'
+import { gameSubject, handleMove } from '@renderer/services/gameService'
+import { useEffect, useState } from 'react'
 import { Promote } from './Promote'
 
-export const BoardSquare = ({ piece, black, position }) => {
+type BoardSquareProps = { piece: TypePiece; black: boolean; position: string }
+
+export const BoardSquare = ({ piece, black, position }: BoardSquareProps) => {
   const [promotion, setPromotion] = useState(null)
   const [, drop] = useDrop({
     accept: 'piece',
-    drop: (item) => {
-      const [fromPosition] = item.id.split('_')
+    drop: (item: TypeDrop) => {
+      const [fromPosition] = item.id.split('.')
       handleMove(fromPosition, position)
     }
   })
 
   useEffect(() => {
-    const subscribe = gameSubject.subscribe(({ pendingPromotion }) =>
+    const subscribe = gameSubject.subscribe(({ pendingPromotion }: TypeGame) =>
       pendingPromotion && pendingPromotion.to === position
         ? setPromotion(pendingPromotion)
         : setPromotion(null)
@@ -25,7 +28,7 @@ export const BoardSquare = ({ piece, black, position }) => {
   }, [position])
 
   return (
-    <div className="board-square" ref={drop}>
+    <div className="w-full h-full" ref={drop}>
       <Square black={black}>
         {promotion ? (
           <Promote promotion={promotion} />
