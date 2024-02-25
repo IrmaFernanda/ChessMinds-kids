@@ -1,4 +1,4 @@
-import { TypeDrop, TypeGame, TypePiece } from '@shared/models'
+import { TypeDrop, TypeMove, TypePiece } from '@shared/models'
 import { Piece } from './Piece'
 import { Square } from './Square'
 import { useDrop } from 'react-dnd'
@@ -9,7 +9,7 @@ import { Promote } from './Promote'
 type BoardSquareProps = { piece: TypePiece; black: boolean; position: string }
 
 export const BoardSquare = ({ piece, black, position }: BoardSquareProps) => {
-  const [promotion, setPromotion] = useState(null)
+  const [promotion, setPromotion] = useState<TypeMove | null>(null)
   const [, drop] = useDrop({
     accept: 'piece',
     drop: (item: TypeDrop) => {
@@ -19,10 +19,11 @@ export const BoardSquare = ({ piece, black, position }: BoardSquareProps) => {
   })
 
   useEffect(() => {
-    const subscribe = gameSubject.subscribe(({ pendingPromotion }: TypeGame) =>
-      pendingPromotion && pendingPromotion.to === position
-        ? setPromotion(pendingPromotion)
-        : setPromotion(null)
+    const subscribe = gameSubject.subscribe(
+      ({ pendingPromotion }: { pendingPromotion?: TypeMove }) =>
+        pendingPromotion && pendingPromotion.to === position
+          ? setPromotion(pendingPromotion)
+          : setPromotion(null)
     )
     return () => subscribe.unsubscribe()
   }, [position])

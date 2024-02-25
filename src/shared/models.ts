@@ -13,9 +13,9 @@ export type OptionContent = string
 export type TypeGame = {
   board: TypePiece[]
   isGameOver: boolean
-  pendingPromotion: TypeMove
+  pendingPromotion: TypeMove | undefined
   turn: string
-  result: string
+  result: string | null
 }
 
 export type TypePiece = {

@@ -1,4 +1,4 @@
-import { TypeGame, TypePiece } from '@shared/models'
+import { TypePiece } from '@shared/models'
 import { BoardSquare } from './BoardSquare'
 import { useEffect, useState } from 'react'
 
