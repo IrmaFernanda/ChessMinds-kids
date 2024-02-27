@@ -1,11 +1,11 @@
-import { TypeGame, TypePiece } from '@shared/models'
+import { PieceType } from '@shared/models'
 import { BoardSquare } from './BoardSquare'
 import { useEffect, useState } from 'react'
 
-type BoardProps = { board: TypePiece[][]; turn: string }
+type BoardProps = { board: PieceType[][]; turn: string }
 
 export const Board = ({ board, turn }: BoardProps) => {
-  const [currBoard, setCurrBoard] = useState<TypePiece[]>([])
+  const [currBoard, setCurrBoard] = useState<PieceType[]>([])
 
   useEffect(() => {
     setCurrBoard(turn === 'w' ? board.flat() : board.flat().reverse())

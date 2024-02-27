@@ -1,62 +1,54 @@
-import { useState } from 'react'
-import { Chessboard } from 'react-chessboard'
-import { Chess } from 'chess.js'
+import { useEffect, useState } from 'react'
+import { GameType } from '@shared/models'
+import { gameSubject, initGame, resetGame } from '@renderer/services/gameService'
+import { Board } from './Board'
 
-export const Game = () => {
-  const [game, setGame] = useState(new Chess())
+const Game = () => {
+  const [board, setBoard] = useState([])
+  const [isGameOver, setIsGameOver] = useState<boolean>()
+  const [result, setResult] = useState<string>()
+  const [turn, setTurn] = useState<string>()
 
-  // Let;s perform a function on the game state
-  const safeGameMutate = (modify) => {
-    setGame((g) => {
-      const update = { ...g }
-      modify(update)
-      return update
+  useEffect(() => {
+    initGame()
+    const subscribe = gameSubject.subscribe({
+      next: (game: GameType) => {
+        setBoard(game.board)
+        setIsGameOver(game.isGameOver)
+        setResult(game.result)
+        setTurn(game.turn)
+      }
     })
-  }
-
-  // Movement of computer
-  const makeRandomMove = () => {
-    const possibleMove = game.moves()
-
-    // exit if the game is over
-    if (game.game_over() || game.in_draw() || possibleMove.length === 0) return
-
-    // select random move
-    const randomIndex = Math.floor(Math.random() * possibleMove.length)
-
-    // play random move
-    safeGameMutate((g) => {
-      game.move(possibleMove[randomIndex])
-    })
-  }
-
-  // Perform an action when a pice is dropped by a user
-  const onDrop = ({ sourceSquare, targetSquare }) => {
-    let move = null
-
-    safeGameMutate((game) => {
-      move = game.move({
-        from: sourceSquare,
-        to: targetSquare,
-        promotion: 'q'
-      })
-    })
-
-    // illegal move
-    if (move === null) return false
-
-    // valid move
-    setTimeout(makeRandomMove, 200)
-
-    return true
-  }
+    return () => subscribe.unsubscribe()
+  }, [])
 
   return (
-    <div className="flex items-center justify-center m-6">
-      <Chessboard
-        position={game.fen()}
-        onPieceDrop={(sourceSquare, targetSquare) => onDrop({ sourceSquare, targetSquare })}
-      />
+    <div className="min-h-lvh flex items-center justify-center bg-[#222222]">
+      {isGameOver && (
+        <h2
+          className="font-sans p-[10px] text-white"
+          style={{ writingMode: 'vertical-lr', textOrientation: 'upright' }}
+        >
+          GAME OVER
+          <button onClick={resetGame}>
+            <span
+              className="mt-[20px] cursor-pointer bg-[#3F3F3F] rounded-[10px]"
+              style={{ border: '2px solid white' }}
+            >
+              New Game
+            </span>
+          </button>
+        </h2>
+      )}
+      <div className="w-[600px] h-[600px]">
+        <Board board={board} turn={turn} />
+      </div>
+      {result && (
+        <p className="" style={{ writingMode: 'vertical-lr', textOrientation: 'upright' }}>
+          {result}
+        </p>
+      )}
     </div>
   )
 }
+export default Game

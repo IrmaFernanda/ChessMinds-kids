@@ -1,34 +1,22 @@
-export type SquareInfo = {
-  id: string
-  background: string
-}
-
-export type OptionInfo = {
-  title: string
-  description: string
-}
-
-export type OptionContent = string
-
-export type TypeGame = {
-  board: TypePiece[]
+export type GameType = {
+  board: PieceType[]
   isGameOver: boolean
-  pendingPromotion: TypeMove
+  pendingPromotion: MoveType | undefined
   turn: string
-  result: string
+  result: string | null
 }
 
-export type TypePiece = {
+export type PieceType = {
   type: string
   color: string
 }
 
-export type TypeDrop = {
+export type DropType = {
   type: string
   id: string
 }
 
-export type TypeMove = {
+export type MoveType = {
   color: string
   from: string
   to: string
@@ -37,4 +25,26 @@ export type TypeMove = {
   promotion: string
   san: string
   captured: string
+}
+
+export type MenuItemType = {
+  id: string
+  title: string
+  description: string
+  image: string
+}
+
+export type MenuType = {
+  difficulty: number
+  items: MenuItemType[]
+}
+
+export type MainMenuType = {
+  items: MainMenuItemType[]
+}
+
+export type MainMenuItemType = {
+  id: string
+  title: string
+  path: string
 }

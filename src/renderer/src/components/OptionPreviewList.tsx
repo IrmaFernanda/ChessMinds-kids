@@ -8,7 +8,7 @@ export type NotePreviewListProps = ComponentProps<'ul'> & {
   onSelect?: () => void
 }
 
-export const NotePreviewList = ({ onSelect, className, ...props }: NotePreviewListProps) => {
+export const OptionPreviewList = ({ onSelect, className, ...props }: NotePreviewListProps) => {
   const { options, selectedOptionIndex, handleOptionSelect } = useOptionsList({ onSelect })
 
   if (!options) return null
@@ -21,11 +21,11 @@ export const NotePreviewList = ({ onSelect, className, ...props }: NotePreviewLi
     )
   }
 
-  return <ul className={className} {...props}>
-    {
-      option.map((option, index) => (
-      <OptionPreview/>
-      )
-    }
-  </ul>
+  return (
+    <ul className={className} {...props}>
+      {options.map((option, index) => (
+        <OptionPreview key={option.title} />
+      ))}
+    </ul>
+  )
 }

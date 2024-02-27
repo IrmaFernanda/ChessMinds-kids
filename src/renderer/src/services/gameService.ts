@@ -1,11 +1,12 @@
-import { TypeGame, TypeMove } from '@shared/models'
+import { GameType, MoveType } from '@shared/models'
 import { Chess } from 'chess.js'
 import { BehaviorSubject } from 'rxjs'
 
-const promotion: string = 'rnb2bnr/pppPkppp/8/4p3/7q/8/PPPP1PPP/RNBQKBNR w KQ - 1 5'
-const staleMate: string = '4k3/4P3/4K3/8/8/8/8/8 b - - 0 78'
-const checkMate: string = 'rnb1kbnr/pppp1ppp/8/4p3/5PPq/8/PPPPP2P/RNBQKBNR w KQkq - 1 4'
-const insufficientMaterial: string = '8/8/2k5/2q5/8/2n5/8/2K5 w - - 0 1'
+/** @ignore Casos de pruebas */
+// const promotion: string = 'rnb2bnr/pppPkppp/8/4p3/7q/8/PPPP1PPP/RNBQKBNR w KQ - 1 5'
+// const staleMate: string = '4k3/4P3/4K3/8/8/8/8/8 b - - 0 78'
+// const checkMate: string = 'rnb1kbnr/pppp1ppp/8/4p3/5PPq/8/PPPPP2P/RNBQKBNR w KQkq - 1 4'
+// const insufficientMaterial: string = '8/8/2k5/2q5/8/2n5/8/2K5 w - - 0 1'
 
 const chess = new Chess()
 
@@ -24,23 +25,24 @@ export const resetGame = () => {
   updateGame()
 }
 
-export const handleMove = (from, to) => {
-  const promotions = chess.moves({ verbose: true }).filter((m) => m.promotion)
+export const handleMove = (from: string, to: string) => {
+  console.table(chess.moves())
+  const promotions = chess.moves({ verbose: true }).filter((m: MoveType) => m.promotion)
   console.table(promotions)
-  if (promotions.some((p: TypeMove) => `${p.from}:${p.to}` === `${from}:${to}`)) {
+  if (promotions.some((p: MoveType) => `${p.from}:${p.to}` === `${from}:${to}`)) {
     console.log('El usuario va a reclamar una promoción')
     const pendingPromotion = { from, to, color: promotions[0].color }
-    updateGame(pendingPromotion as TypeMove)
+    updateGame(pendingPromotion as MoveType)
   }
-  const { pendingPromotion }: { pendingPromotion?: TypeMove } = gameSubject.getValue()
+  const { pendingPromotion }: { pendingPromotion?: MoveType } = gameSubject.getValue()
   if (!pendingPromotion) {
     move(from, to)
   }
 }
 
-export const move = (from, to, promotion?) => {
+export const move = (from: string, to: string, promotion?: string) => {
   console.log(from, to, promotion)
-  const tempMove: { from; to; promotion? } = { from, to }
+  const tempMove: { from: string; to: string; promotion?: string } = { from, to }
   if (promotion) {
     tempMove.promotion = promotion
   }
@@ -51,9 +53,9 @@ export const move = (from, to, promotion?) => {
   }
 }
 
-const updateGame = (pendingPromotion?: TypeMove) => {
+const updateGame = (pendingPromotion?: MoveType) => {
   const isGameOver = chess.game_over()
-  const newGame: TypeGame = {
+  const newGame: GameType = {
     board: chess.board(),
     pendingPromotion,
     isGameOver,

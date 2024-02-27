@@ -1,9 +1,9 @@
-import { TypeMove } from '@shared/models'
+import { MoveType } from '@shared/models'
 import { useEffect, useState } from 'react'
 import { Square } from './Square'
 import { move } from '@renderer/services/gameService'
 
-type PromoteProps = { promotion: TypeMove }
+type PromoteProps = { promotion: MoveType }
 
 const promotionPieces = ['q', 'r', 'n', 'b']
 
