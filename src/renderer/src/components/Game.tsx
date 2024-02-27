@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { TypeGame } from '@shared/models'
+import { GameType } from '@shared/models'
 import { gameSubject, initGame, resetGame } from '@renderer/services/gameService'
 import { Board } from './Board'
 
@@ -12,7 +12,7 @@ const Game = () => {
   useEffect(() => {
     initGame()
     const subscribe = gameSubject.subscribe({
-      next: (game: TypeGame) => {
+      next: (game: GameType) => {
         setBoard(game.board)
         setIsGameOver(game.isGameOver)
         setResult(game.result)

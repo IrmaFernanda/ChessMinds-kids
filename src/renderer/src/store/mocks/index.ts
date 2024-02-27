@@ -1,20 +1,40 @@
-import { OptionInfo } from '@shared/models'
+import { MenuItemType } from '@shared/models'
 
-export const optionsMock: OptionInfo[] = [
+export const menuItems: MenuItemType[] = [
   {
-    title: `Option 1`,
-    description: `This is the first option`
+    id: `torre`,
+    title: `La Torre`,
+    description: `Se mueve en línea recta`,
+    image: `wr`
   },
   {
-    title: `Option 2`,
-    description: `This is the second option`
+    id: `alfil`,
+    title: `El Alfil`,
+    description: `Se mueve en diagonal`,
+    image: `wb`
   },
   {
-    title: `Option 3`,
-    description: `This is the third option`
+    id: `dama`,
+    title: `La Dama`,
+    description: `Dama = Torre + Alfil`,
+    image: `wq`
   },
   {
-    title: `Option 4`,
-    description: `This is the fourth option`
+    id: `rey`,
+    title: `El Rey`,
+    description: `La pieza más importante`,
+    image: `wk`
+  },
+  {
+    id: `caballo`,
+    title: `El Caballo`,
+    description: `Se mueve en forma de L`,
+    image: `wn`
+  },
+  {
+    id: `peon`,
+    title: `El Peón`,
+    description: `Se mueve hacia adelante`,
+    image: `wp`
   }
 ]

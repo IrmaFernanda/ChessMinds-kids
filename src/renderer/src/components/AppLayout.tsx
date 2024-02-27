@@ -9,10 +9,21 @@ export const RootLayout = ({ children, className, ...props }: ComponentProps<'ma
   )
 }
 
+export const Header = ({ children, className, ...props }: ComponentProps<'header'>) => {
+  return (
+    <header className="absolute inset-0 h-8 bg-transparent" {...props}>
+      {children}
+    </header>
+  )
+}
+
 export const Sidebar = ({ className, children, ...props }: ComponentProps<'aside'>) => {
   return (
     <aside
-      className={twMerge('w-[250px] mt-10 h-[100hv + 10px] overflow-auto', className)}
+      className={twMerge(
+        'fixed top-0 z-40 h-screen p-4 overflow-y-auto overflow-visible translate-x-full w-64 duration-1000 transition-transform',
+        className
+      )}
       {...props}
     >
       {children}

@@ -1,4 +1,4 @@
-import { TypeGame, TypeMove } from '@shared/models'
+import { GameType, MoveType } from '@shared/models'
 import { Chess } from 'chess.js'
 import { BehaviorSubject } from 'rxjs'
 
@@ -27,14 +27,14 @@ export const resetGame = () => {
 
 export const handleMove = (from: string, to: string) => {
   console.table(chess.moves())
-  const promotions = chess.moves({ verbose: true }).filter((m: TypeMove) => m.promotion)
+  const promotions = chess.moves({ verbose: true }).filter((m: MoveType) => m.promotion)
   console.table(promotions)
-  if (promotions.some((p: TypeMove) => `${p.from}:${p.to}` === `${from}:${to}`)) {
+  if (promotions.some((p: MoveType) => `${p.from}:${p.to}` === `${from}:${to}`)) {
     console.log('El usuario va a reclamar una promoción')
     const pendingPromotion = { from, to, color: promotions[0].color }
-    updateGame(pendingPromotion as TypeMove)
+    updateGame(pendingPromotion as MoveType)
   }
-  const { pendingPromotion }: { pendingPromotion?: TypeMove } = gameSubject.getValue()
+  const { pendingPromotion }: { pendingPromotion?: MoveType } = gameSubject.getValue()
   if (!pendingPromotion) {
     move(from, to)
   }
@@ -53,9 +53,9 @@ export const move = (from: string, to: string, promotion?: string) => {
   }
 }
 
-const updateGame = (pendingPromotion?: TypeMove) => {
+const updateGame = (pendingPromotion?: MoveType) => {
   const isGameOver = chess.game_over()
-  const newGame: TypeGame = {
+  const newGame: GameType = {
     board: chess.board(),
     pendingPromotion,
     isGameOver,

@@ -1,8 +1,8 @@
-import { TypePiece } from '@shared/models'
+import { PieceType } from '@shared/models'
 import { useEffect, useState } from 'react'
 import { useDrag, DragPreviewImage } from 'react-dnd'
 
-type PieceProps = { piece: TypePiece; position: string }
+type PieceProps = { piece: PieceType; position: string }
 
 export const Piece = ({ piece: { type, color }, position }: PieceProps) => {
   const [{ isDragging }, drag, preview] = useDrag({
