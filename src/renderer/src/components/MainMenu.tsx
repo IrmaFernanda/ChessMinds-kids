@@ -2,10 +2,12 @@ import { ComponentProps } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { MainMenuItem } from './MainMenuItem'
 import { MainMenuItemType } from '@shared/models'
+import { useNavigate } from 'react-router-dom'
 
 type MainMenuProps = ComponentProps<'section'>
 
 export const MainMenu = ({ className, ...props }: MainMenuProps) => {
+  const navigate = useNavigate()
   const mainMenuItems: MainMenuItemType[] = [
     {
       id: `aprender`,
@@ -25,6 +27,10 @@ export const MainMenu = ({ className, ...props }: MainMenuProps) => {
   ]
   const mainMenuItemStyles = `hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700`
 
+  const handleClick = (path) => {
+    navigate(path)
+  }
+
   return (
     <>
       <section
@@ -36,7 +42,13 @@ export const MainMenu = ({ className, ...props }: MainMenuProps) => {
           <section className="w-1/2 flex justify-center">
             <div className={`grid grid-cols-1 gap-5 w-full sm:w-fit `}>
               {mainMenuItems.map(({ id, title, path }) => (
-                <MainMenuItem className={mainMenuItemStyles} key={id} title={title} path={path} />
+                <MainMenuItem
+                  className={mainMenuItemStyles}
+                  key={id}
+                  title={title}
+                  path={path}
+                  onClick={() => handleClick(path)}
+                />
               ))}
             </div>
           </section>
