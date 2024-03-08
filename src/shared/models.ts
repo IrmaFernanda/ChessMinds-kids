@@ -32,6 +32,7 @@ export type MenuItemType = {
   title: string
   description: string
   image: string
+  lesson: string
 }
 
 export type MenuType = {

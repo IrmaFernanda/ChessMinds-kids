@@ -12,17 +12,17 @@ export const MainMenu = ({ className, ...props }: MainMenuProps) => {
     {
       id: `aprender`,
       title: `Aprender`,
-      path: `aprender`
+      path: `learn`
     },
     {
       id: `ejercicios`,
       title: `Ejercicios`,
-      path: `ejercicios`
+      path: `exercises`
     },
     {
       id: `practicar`,
       title: `Practicar`,
-      path: `practicar`
+      path: `practice`
     }
   ]
   const mainMenuItemStyles = `hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700`

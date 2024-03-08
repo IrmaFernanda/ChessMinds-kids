@@ -1,6 +1,4 @@
-import { useState } from 'react'
 import { Content, Header, RootLayout, Sidebar } from './components'
-import { SiderbarButton } from './components/SiderbarButton'
 import { Menu } from './components/Menu'
 import { menuItems } from './store/mocks'
 import { CarouselPage } from './pages/CarouselPage'
@@ -8,8 +6,6 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import { MainMenu } from './components/MainMenu'
 
 const App = () => {
-  const [showSidebar, setShowSidebar] = useState(true)
-
   return (
     <>
       <Header></Header>
@@ -18,9 +14,10 @@ const App = () => {
           <Routes>
             <Route path="/" element={<MainMenu />} />
             <Route
-              path="aprender"
+              path="learn"
               element={<Menu title={`Fundamentos del Ajedrez`} menuItems={menuItems} />}
             />
+            <Route path="teach/:lesson" element={<CarouselPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Content>
