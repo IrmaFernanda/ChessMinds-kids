@@ -5,48 +5,56 @@ export const menuItems: MenuItemType[] = [
     id: `torre`,
     title: `La Torre`,
     description: `Se mueve en línea recta`,
-    image: `wr`
+    image: `wr`,
+    lesson: `torre`
   },
   {
     id: `alfil`,
     title: `El Alfil`,
     description: `Se mueve en diagonal`,
-    image: `wb`
+    image: `wb`,
+    lesson: `alfil`
   },
   {
     id: `dama`,
     title: `La Dama`,
     description: `Dama = Torre + Alfil`,
-    image: `wq`
+    image: `wq`,
+    lesson: `dama`
   },
   {
     id: `rey`,
     title: `El Rey`,
     description: `La pieza más importante`,
-    image: `wk`
+    image: `wk`,
+    lesson: `rey`
   },
   {
     id: `caballo`,
     title: `El Caballo`,
     description: `Se mueve en forma de L`,
-    image: `wn`
+    image: `wn`,
+    lesson: `caballo`
   },
   {
     id: `peon`,
     title: `El Peón`,
     description: `Se mueve hacia adelante`,
-    image: `wp`
+    image: `wp`,
+    lesson: `peon`
   },
   {
     id: `mates`,
     title: `Mates`,
     description: `El objetivo del juego`,
-    image: `wk`
+    image: `wk`,
+    lesson: `mates`
   },
   {
     id: `especiales`,
     title: `Movimientos especiales`,
     description: `Enroque, peón al paso, coronación`,
-    image: `wp`
+    image: `wp`,
+    lesson: `especiales`
   }
 ]
