@@ -36,5 +36,17 @@ export const menuItems: MenuItemType[] = [
     title: `El Peón`,
     description: `Se mueve hacia adelante`,
     image: `wp`
+  },
+  {
+    id: `mates`,
+    title: `Mates`,
+    description: `El objetivo del juego`,
+    image: `wk`
+  },
+  {
+    id: `especiales`,
+    title: `Movimientos especiales`,
+    description: `Enroque, peón al paso, coronación`,
+    image: `wp`
   }
 ]
