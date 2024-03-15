@@ -23,7 +23,7 @@ export const OptionPreviewList = ({ onSelect, className, ...props }: NotePreview
 
   return (
     <ul className={className} {...props}>
-      {options.map((option, index) => (
+      {options.map((option) => (
         <OptionPreview key={option.title} />
       ))}
     </ul>

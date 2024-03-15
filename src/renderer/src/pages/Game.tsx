@@ -1,22 +1,28 @@
 import { useEffect, useState } from 'react'
-import { GameType } from '@shared/models'
+import { GameType, PieceType } from '@shared/models'
 import { gameSubject, initGame, resetGame } from '@renderer/services/gameService'
-import { Board } from './Board'
+import { Board } from '@/components/Board'
+import { Subscription } from 'rxjs'
 
 const Game = () => {
-  const [board, setBoard] = useState([])
+  const [board, setBoard] = useState<PieceType[]>([])
   const [isGameOver, setIsGameOver] = useState<boolean>()
-  const [result, setResult] = useState<string>()
-  const [turn, setTurn] = useState<string>()
+  const [result, setResult] = useState<string | null>()
+  const [turn, setTurn] = useState<string>('')
 
   useEffect(() => {
     initGame()
-    const subscribe = gameSubject.subscribe({
-      next: (game: GameType) => {
-        setBoard(game.board)
-        setIsGameOver(game.isGameOver)
-        setResult(game.result)
-        setTurn(game.turn)
+    const subscribe: Subscription = gameSubject.subscribe({
+      next: (game: GameType | string) => {
+        if (typeof game === 'string') {
+          console.log('Error:', game)
+          return
+        }
+        const { board, isGameOver, result, turn }: GameType = game
+        setBoard(board)
+        setIsGameOver(isGameOver)
+        setResult(result)
+        setTurn(turn)
       }
     })
     return () => subscribe.unsubscribe()

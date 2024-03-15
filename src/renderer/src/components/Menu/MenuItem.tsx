@@ -5,13 +5,17 @@ import { twMerge } from 'tailwind-merge'
 type MenuItemProps = Partial<MenuItemType> & ComponentProps<'article'>
 
 export const MenuItem = ({ title, description, image, className, ...props }: MenuItemProps) => {
-  const [imageImg, setImageImg] = useState<string | null>(null)
+  const [imageImg, setImageImg] = useState<string>('')
 
   useEffect(() => {
     const loadImage = async () => {
       try {
-        const module = await import(`@/assets/pieces/${image}.png`)
-        setImageImg(module.default)
+        const module: string = await Promise.all([
+          import(`../../assets/pieces/${image}.png`)
+            .then((module) => module.default)
+            .catch((error) => console.error('Error loading image:', error))
+        ]).then((module) => module[0])
+        setImageImg(module)
       } catch (error) {
         console.error('Error loading image:', error)
       }

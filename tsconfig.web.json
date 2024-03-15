@@ -21,7 +21,10 @@
       ],
       "@/*": [
         "src/renderer/src/*"
-      ]
+      ],
+      "@assets/*": [
+        "src/renderer/assets/*"
+      ],
     }
   }
 }

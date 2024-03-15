@@ -11,13 +11,17 @@ export const Piece = ({ piece: { type, color }, position }: PieceProps) => {
       return { isDragging: !!monitor.isDragging() }
     }
   })
-  const [pieceImg, setPieceImg] = useState<string | null>(null)
+  const [pieceImg, setPieceImg] = useState<string>('')
 
   useEffect(() => {
     const loadImage = async () => {
       try {
-        const module = await import(`@/assets/pieces/${color}${type}.png`)
-        setPieceImg(module.default)
+        const module: string = await Promise.all([
+          import(`../../assets/pieces/${color}${type}.png`)
+            .then((module) => module.default)
+            .catch((error) => console.error('Error loading image:', error))
+        ]).then((module) => module[0])
+        setPieceImg(module)
       } catch (error) {
         console.error('Error loading image:', error)
       }

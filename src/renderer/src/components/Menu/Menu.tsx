@@ -12,7 +12,6 @@ export const Menu = ({ title, menuItems }: MenuProps) => {
   const menuItemStyles = `hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700`
 
   const handleClick = (lesson) => {
-    console.log('lesson', lesson)
     navigate(`/teach/${lesson}`, { replace: true })
   }
 

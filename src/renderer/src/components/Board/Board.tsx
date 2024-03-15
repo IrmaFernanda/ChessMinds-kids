@@ -2,7 +2,7 @@ import { PieceType } from '@shared/models'
 import { BoardSquare } from './BoardSquare'
 import { useEffect, useState } from 'react'
 
-type BoardProps = { board: PieceType[][]; turn: string }
+type BoardProps = { board: PieceType[]; turn: string }
 
 export const Board = ({ board, turn }: BoardProps) => {
   const [currBoard, setCurrBoard] = useState<PieceType[]>([])

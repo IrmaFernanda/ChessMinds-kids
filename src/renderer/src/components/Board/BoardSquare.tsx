@@ -1,10 +1,11 @@
-import { DropType, MoveType, PieceType } from '@shared/models'
+import { DropType, GameType, MoveType, PieceType } from '@shared/models'
 import { Piece } from './Piece'
 import { Square } from './Square'
 import { useDrop } from 'react-dnd'
 import { gameSubject, handleMove } from '@renderer/services/gameService'
 import { useEffect, useState } from 'react'
 import { Promote } from './Promote'
+import { Subscription } from 'rxjs'
 
 type BoardSquareProps = { piece: PieceType; black: boolean; position: string }
 
@@ -19,12 +20,19 @@ export const BoardSquare = ({ piece, black, position }: BoardSquareProps) => {
   })
 
   useEffect(() => {
-    const subscribe = gameSubject.subscribe(
-      ({ pendingPromotion }: { pendingPromotion?: MoveType }) =>
+    const subscribe: Subscription = gameSubject.subscribe({
+      next: (game: GameType | string) => {
+        if (typeof game === 'string') {
+          console.log('Error:', game)
+          return
+        }
+        const pendingPromotion = game.pendingPromotion
         pendingPromotion && pendingPromotion.to === position
           ? setPromotion(pendingPromotion)
           : setPromotion(null)
-    )
+      },
+      error: (error) => console.error('Error:', error)
+    })
     return () => subscribe.unsubscribe()
   }, [position])
 

@@ -3,6 +3,7 @@ import { Chess } from 'chess.js'
 import { BehaviorSubject } from 'rxjs'
 
 /** @ignore Casos de pruebas */
+const initialGame: string = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR'
 // const promotion: string = 'rnb2bnr/pppPkppp/8/4p3/7q/8/PPPP1PPP/RNBQKBNR w KQ - 1 5'
 // const staleMate: string = '4k3/4P3/4K3/8/8/8/8/8 b - - 0 78'
 // const checkMate: string = 'rnb1kbnr/pppp1ppp/8/4p3/5PPq/8/PPPPP2P/RNBQKBNR w KQkq - 1 4'
@@ -10,7 +11,7 @@ import { BehaviorSubject } from 'rxjs'
 
 const chess = new Chess()
 
-export const gameSubject = new BehaviorSubject({})
+export const gameSubject = new BehaviorSubject<GameType | string>(initialGame)
 
 export const initGame = () => {
   const savedGame = localStorage.getItem('savedGame')
@@ -34,9 +35,13 @@ export const handleMove = (from: string, to: string) => {
     const pendingPromotion = { from, to, color: promotions[0].color }
     updateGame(pendingPromotion as MoveType)
   }
-  const { pendingPromotion }: { pendingPromotion?: MoveType } = gameSubject.getValue()
-  if (!pendingPromotion) {
-    move(from, to)
+  console.log(gameSubject.getValue())
+  const game: GameType | string = gameSubject.getValue()
+  if (typeof game !== 'string') {
+    const { pendingPromotion } = game
+    if (!pendingPromotion) {
+      move(from, to)
+    }
   }
 }
 
