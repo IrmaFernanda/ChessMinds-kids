@@ -1,9 +1,10 @@
 import { Content, Header, RootLayout, Sidebar } from './components'
-import { Menu } from './components/Menu'
+import { Menu } from './components/Menu/Menu'
 import { menuItems } from './store/mocks'
 import { CarouselPage } from './pages/CarouselPage'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import { MainMenu } from './components/MainMenu'
+import { MainMenu } from './components/Menu/MainMenu'
+import Game from './pages/Game'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Content className="border-l bg-zinc-900/50 border-l-white/20">
           <Routes>
             <Route path="/" element={<MainMenu />} />
+            <Route path="play" element={<Game />} />
             <Route
               path="learn"
               element={<Menu title={`Fundamentos del Ajedrez`} menuItems={menuItems} />}

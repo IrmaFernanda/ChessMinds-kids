@@ -10,6 +10,11 @@ export const MainMenu = ({ className, ...props }: MainMenuProps) => {
   const navigate = useNavigate()
   const mainMenuItems: MainMenuItemType[] = [
     {
+      id: `jugar`,
+      title: `Jugar`,
+      path: `play`
+    },
+    {
       id: `aprender`,
       title: `Aprender`,
       path: `learn`

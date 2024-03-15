@@ -1,17 +1,25 @@
 import Image from '@renderer/components/Image'
-import { Carousel } from 'keep-react'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import ReactSwipe from 'react-swipe'
 
 export const CarouselPage = () => {
   const { lesson } = useParams()
-  const [imageImg, setImageImg] = useState<string | null>(null)
+  const [images, setImages] = useState<string[]>([])
+  let reactSwipeEl
+  const nameImages = ['wk', 'wq', 'wr', 'wb', 'wn', 'wp']
 
   useEffect(() => {
     const loadImage = async () => {
       try {
-        const module = await import(`@/assets/pieces/wk.png`)
-        setImageImg(module.default)
+        const module: string[] = await Promise.all(
+          nameImages.map((image) =>
+            import(`@/assets/pieces/${image}.png`)
+              .then((module) => module.default)
+              .catch((error) => console.error('Error loading image:', error))
+          )
+        )
+        setImages(module)
       } catch (error) {
         console.error('Error loading image:', error)
       }
@@ -21,10 +29,31 @@ export const CarouselPage = () => {
   }, [])
 
   return (
-    <section>
-      <Carousel slideInterval={5000} showControls={true} indicators={true}>
-        <Image src={imageImg} alt="slider-1" height={400} width={910} />
-      </Carousel>
+    <section className="h-full flex items-center">
+      <div className="w-full">
+        <ReactSwipe
+          childCount={images.length}
+          ref={(el) => (reactSwipeEl = el)}
+          swipeOptions={{ continuous: false }}
+        >
+          {images.map((image, i) => (
+            <div key={i} className="w-full h-full flex items-center justify-center">
+              <Image
+                key={image}
+                className={'h-full'}
+                src={image}
+                alt="slider-1"
+                height={400}
+                width={810}
+              />
+            </div>
+          ))}
+        </ReactSwipe>
+        <div>
+          <button onClick={() => reactSwipeEl.next()}>Siguiente</button>
+          <button onClick={() => reactSwipeEl.prev()}>Anterior</button>
+        </div>
+      </div>
     </section>
   )
 }
