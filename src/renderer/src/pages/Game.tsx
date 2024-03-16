@@ -46,7 +46,7 @@ const Game = () => {
           </button>
         </h2>
       )}
-      <div className="w-[600px] h-[600px]">
+      <div className="flex items-center justify-center">
         <Board board={board} turn={turn} />
       </div>
       {result && (
