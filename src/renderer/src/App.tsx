@@ -1,4 +1,4 @@
-import { Content, Header, RootLayout, Sidebar } from './components'
+import { Content, Header, RootLayout } from './components'
 import { Menu } from './components/Menu/Menu'
 import { menuItems } from './store/mocks'
 import { CarouselPage } from './pages/CarouselPage'
