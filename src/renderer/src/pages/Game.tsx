@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
-import { GameType, PieceType } from '@shared/models'
-import { gameSubject, initGame, resetGame } from '@renderer/services/gameService'
 import { Board } from '@/components/Board'
+import { BackButton } from '@renderer/components/Button/BackButton'
+import { gameSubject, initGame, resetGame } from '@renderer/services/gameService'
+import { GameType, PieceType } from '@shared/models'
+import { useEffect, useState } from 'react'
 import { Subscription } from 'rxjs'
 
 const Game = () => {
@@ -54,7 +55,9 @@ const Game = () => {
           {result}
         </p>
       )}
+      <BackButton className="mb-4 absolute top-7 left-8"/>
     </div>
+    
   )
 }
 export default Game

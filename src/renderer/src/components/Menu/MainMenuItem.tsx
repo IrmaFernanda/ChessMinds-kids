@@ -17,3 +17,4 @@ export const MainMenuItem = ({ title, path, className, ...props }: MainMenuItemP
     </article>
   )
 }
+
