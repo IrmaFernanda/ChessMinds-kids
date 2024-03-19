@@ -23,9 +23,9 @@
 
     @apply select-none;
 
-    @apply bg-lime-900;
+    @apply bg-blue-300;
 
-    @apply font-mono antialiased text-white;
+    @apply font-mono antialiased text-black;
 
     @apply overflow-hidden;
   }

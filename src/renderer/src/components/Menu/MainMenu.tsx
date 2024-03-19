@@ -1,8 +1,8 @@
+import { MainMenuItemType } from '@shared/models'
 import { ComponentProps } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { twMerge } from 'tailwind-merge'
 import { MainMenuItem } from './MainMenuItem'
-import { MainMenuItemType } from '@shared/models'
-import { useNavigate } from 'react-router-dom'
 
 type MainMenuProps = ComponentProps<'section'>
 
@@ -16,21 +16,21 @@ export const MainMenu = ({ className, ...props }: MainMenuProps) => {
     },
     {
       id: `aprender`,
-      title: `Aprender`,
+      title: `TUTORIA DE PIEZAS`,
       path: `learn`
     },
     {
       id: `ejercicios`,
-      title: `Ejercicios`,
+      title: `TUTORIAL DE EJERCICIOS`,
       path: `exercises`
     },
     {
       id: `practicar`,
-      title: `Practicar`,
+      title: `PRACTICA LO APRENDIDO`,
       path: `practice`
     }
   ]
-  const mainMenuItemStyles = `hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700`
+  const mainMenuItemStyles = `hover:bg-gray-100 dark:border-gray-700 dark:bg-cyan-700 dark:hover:bg-teal-600`
 
   const handleClick = (path) => {
     navigate(path)

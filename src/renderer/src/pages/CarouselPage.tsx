@@ -1,3 +1,4 @@
+import { BackButton } from '@renderer/components/Button/BackButton'
 import Image from '@renderer/components/Image'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
@@ -53,6 +54,7 @@ export const CarouselPage = () => {
           <button onClick={() => reactSwipeEl.next()}>Siguiente</button>
           <button onClick={() => reactSwipeEl.prev()}>Anterior</button>
         </div>
+        <BackButton className="mb-4 absolute top-7 left-8"/>
       </div>
     </section>
   )
