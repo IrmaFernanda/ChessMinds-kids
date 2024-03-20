@@ -4,7 +4,7 @@ import { twMerge } from 'tailwind-merge'
 
 type MainMenuItemProps = Partial<MainMenuItemType> & ComponentProps<'article'>
 
-export const MainMenuItem = ({ title, path, className, ...props }: MainMenuItemProps) => {
+export const MainMenuItem = ({ title, className, ...props }: MainMenuItemProps) => {
   return (
     <article
       className={twMerge(
@@ -17,4 +17,3 @@ export const MainMenuItem = ({ title, path, className, ...props }: MainMenuItemP
     </article>
   )
 }
-

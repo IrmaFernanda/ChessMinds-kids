@@ -45,7 +45,7 @@ export const CarouselPage = () => {
                 src={image}
                 alt="slider-1"
                 height={400}
-                width={810}
+                width={710}
               />
             </div>
           ))}
@@ -54,7 +54,6 @@ export const CarouselPage = () => {
           <button onClick={() => reactSwipeEl.next()}>Siguiente</button>
           <button onClick={() => reactSwipeEl.prev()}>Anterior</button>
         </div>
-        <BackButton className="mb-4 absolute top-7 left-8"/>
       </div>
     </section>
   )

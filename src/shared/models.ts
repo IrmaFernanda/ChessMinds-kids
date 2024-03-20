@@ -47,5 +47,21 @@ export type MainMenuType = {
 export type MainMenuItemType = {
   id: string
   title: string
+  menuItems?: MenuItemType[]
   path: string
+}
+
+export type ExerciseType = {
+  code: string
+  name: string
+}
+
+export type Exercise = {
+  id: string
+  code: string
+  type: ExerciseType
+  name: string
+  color: 'w' | 'b'
+  initPosition: string
+  sequence: string[]
 }
