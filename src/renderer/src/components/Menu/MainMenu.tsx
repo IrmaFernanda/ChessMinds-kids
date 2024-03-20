@@ -3,37 +3,20 @@ import { ComponentProps } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { twMerge } from 'tailwind-merge'
 import { MainMenuItem } from './MainMenuItem'
+import { mainMenuItems } from '@renderer/store'
 
 type MainMenuProps = ComponentProps<'section'>
 
 export const MainMenu = ({ className, ...props }: MainMenuProps) => {
   const navigate = useNavigate()
-  const mainMenuItems: MainMenuItemType[] = [
-    {
-      id: `jugar`,
-      title: `Jugar`,
-      path: `play`
-    },
-    {
-      id: `aprender`,
-      title: `TUTORIA DE PIEZAS`,
-      path: `learn`
-    },
-    {
-      id: `ejercicios`,
-      title: `TUTORIAL DE EJERCICIOS`,
-      path: `exercises`
-    },
-    {
-      id: `practicar`,
-      title: `PRACTICA LO APRENDIDO`,
-      path: `practice`
-    }
-  ]
   const mainMenuItemStyles = `hover:bg-gray-100 dark:border-gray-700 dark:bg-cyan-700 dark:hover:bg-teal-600`
 
-  const handleClick = (path) => {
-    navigate(path)
+  const handleClick = (item: MainMenuItemType) => {
+    if (item.menuItems) {
+      navigate(`menu/${item.path}`)
+      return
+    }
+    navigate(`${item.path}`)
   }
 
   return (
@@ -46,15 +29,15 @@ export const MainMenu = ({ className, ...props }: MainMenuProps) => {
           <section className="w-1/2 flex justify-center">Logo</section>
           <section className="w-1/2 flex justify-center">
             <div className={`grid grid-cols-1 gap-5 w-full sm:w-fit `}>
-              {mainMenuItems.map(({ id, title, path }) => (
+              {mainMenuItems.map((item) => (
                 <MainMenuItem
                   className={mainMenuItemStyles}
-                  key={id}
-                  title={title}
-                  path={path}
-                  onClick={() => handleClick(path)}
+                  key={item.id}
+                  title={item.title}
+                  onClick={() => handleClick(item)}
                 />
               ))}
+              <button onClick={() => navigate(`/menu/practice/descubierta`)}>Ejemplo</button>
             </div>
           </section>
         </div>

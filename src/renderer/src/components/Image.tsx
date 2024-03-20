@@ -2,8 +2,6 @@ import { ComponentProps } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 export const Image = ({ className, src, alt, height, width, ...props }: ComponentProps<'img'>) => {
-  console.log('src:', src)
-
   return (
     <img
       className={twMerge('', className)}

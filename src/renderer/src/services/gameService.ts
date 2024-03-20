@@ -3,21 +3,22 @@ import { Chess } from 'chess.js'
 import { BehaviorSubject } from 'rxjs'
 
 /** @ignore Casos de pruebas */
-const initialGame: string = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR'
-// const promotion: string = 'rnb2bnr/pppPkppp/8/4p3/7q/8/PPPP1PPP/RNBQKBNR w KQ - 1 5'
+const initialGame: string = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
+const testGame: string = '8/2kP4/2P4r/RK6/6KR/r4P2/4Pk2/8 b - - 0 1'
+const promotion: string = 'rnb2bnr/pppPkppp/8/4p3/7q/8/PPPP1PPP/RNBQKBNR w KQ - 1 5'
 // const staleMate: string = '4k3/4P3/4K3/8/8/8/8/8 b - - 0 78'
 // const checkMate: string = 'rnb1kbnr/pppp1ppp/8/4p3/5PPq/8/PPPPP2P/RNBQKBNR w KQkq - 1 4'
 // const insufficientMaterial: string = '8/8/2k5/2q5/8/2n5/8/2K5 w - - 0 1'
 
-const chess = new Chess()
+const chess = new Chess(testGame)
 
-export const gameSubject = new BehaviorSubject<GameType | string>(initialGame)
+export const gameSubject = new BehaviorSubject<GameType>({} as GameType)
 
 export const initGame = () => {
   const savedGame = localStorage.getItem('savedGame')
-  if (savedGame) {
-    chess.load(savedGame)
-  }
+  // if (savedGame) {
+  //   chess.load(savedGame)
+  // }
   updateGame()
 }
 
@@ -35,7 +36,6 @@ export const handleMove = (from: string, to: string) => {
     const pendingPromotion = { from, to, color: promotions[0].color }
     updateGame(pendingPromotion as MoveType)
   }
-  console.log(gameSubject.getValue())
   const game: GameType | string = gameSubject.getValue()
   if (typeof game !== 'string') {
     const { pendingPromotion } = game
@@ -59,12 +59,13 @@ export const move = (from: string, to: string, promotion?: string) => {
 }
 
 const updateGame = (pendingPromotion?: MoveType) => {
+  const turn = chess.turn() === 'w' ? 'WHITE' : 'BLACK'
   const isGameOver = chess.game_over()
   const newGame: GameType = {
     board: chess.board(),
     pendingPromotion,
     isGameOver,
-    turn: chess.turn(),
+    turn: turn,
     result: isGameOver ? getGameResult() : null
   }
   localStorage.setItem('savedGame', chess.fen())

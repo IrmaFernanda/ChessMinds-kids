@@ -4,8 +4,10 @@ import { gameSubject, initGame, resetGame } from '@renderer/services/gameService
 import { GameType, PieceType } from '@shared/models'
 import { useEffect, useState } from 'react'
 import { Subscription } from 'rxjs'
+import { useParams } from 'react-router-dom'
 
 const Game = () => {
+  const { exercise } = useParams()
   const [board, setBoard] = useState<PieceType[]>([])
   const [isGameOver, setIsGameOver] = useState<boolean>()
   const [result, setResult] = useState<string | null>()
@@ -47,17 +49,20 @@ const Game = () => {
           </button>
         </h2>
       )}
-      <div className="flex items-center justify-center">
+      <div className="h-[800px] w-[800px] flex items-center justify-center">
         <Board board={board} turn={turn} />
       </div>
+      {!isGameOver && (
+        <h2 className="" style={{ writingMode: 'vertical-lr', textOrientation: 'upright' }}>
+          {turn}
+        </h2>
+      )}
       {result && (
         <p className="" style={{ writingMode: 'vertical-lr', textOrientation: 'upright' }}>
           {result}
         </p>
       )}
-      <BackButton className="mb-4 absolute top-7 left-8"/>
     </div>
-    
   )
 }
 export default Game
