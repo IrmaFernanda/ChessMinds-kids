@@ -18,7 +18,7 @@ export const ExercisesMenu = () => {
   }, [type])
 
   const handleClick = (lesson) => {
-    navigate(`/teach/${lesson}`, { replace: true })
+    navigate(`/menu/teach/${lesson}`, { replace: true })
   }
 
   return (

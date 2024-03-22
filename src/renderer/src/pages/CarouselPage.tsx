@@ -1,11 +1,10 @@
-import { BackButton } from '@renderer/components/Button/BackButton'
 import Image from '@renderer/components/Image'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ReactSwipe from 'react-swipe'
 
 export const CarouselPage = () => {
-  const { lesson } = useParams()
+  const { topic } = useParams()
   const [images, setImages] = useState<string[]>([])
   let reactSwipeEl
   const nameImages = ['wk', 'wq', 'wr', 'wb', 'wn', 'wp']

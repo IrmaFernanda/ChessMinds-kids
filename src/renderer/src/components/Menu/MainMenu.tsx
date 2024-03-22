@@ -1,6 +1,6 @@
 import { MainMenuItemType } from '@shared/models'
 import { ComponentProps } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { twMerge } from 'tailwind-merge'
 import { MainMenuItem } from './MainMenuItem'
 import { mainMenuItems } from '@renderer/store'
@@ -12,10 +12,6 @@ export const MainMenu = ({ className, ...props }: MainMenuProps) => {
   const mainMenuItemStyles = `hover:bg-gray-100 dark:border-gray-700 dark:bg-cyan-700 dark:hover:bg-teal-600`
 
   const handleClick = (item: MainMenuItemType) => {
-    if (item.menuItems) {
-      navigate(`menu/${item.path}`)
-      return
-    }
     navigate(`${item.path}`)
   }
 
@@ -30,12 +26,9 @@ export const MainMenu = ({ className, ...props }: MainMenuProps) => {
           <section className="w-1/2 flex justify-center">
             <div className={`grid grid-cols-1 gap-5 w-full sm:w-fit `}>
               {mainMenuItems.map((item) => (
-                <MainMenuItem
-                  className={mainMenuItemStyles}
-                  key={item.id}
-                  title={item.title}
-                  onClick={() => handleClick(item)}
-                />
+                <Link key={item.id} to={`${item.path}`}>
+                  <MainMenuItem className={mainMenuItemStyles} title={item.title} />
+                </Link>
               ))}
               <button onClick={() => navigate(`/menu/practice/descubierta`)}>Ejemplo</button>
             </div>
