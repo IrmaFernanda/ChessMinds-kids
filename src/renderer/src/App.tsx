@@ -3,6 +3,7 @@ import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { Content, Header, RootLayout } from './components'
 import { BackButton } from './components/Button/BackButton'
 import { ExitButton } from './components/Button/ExitButton'
+import { ExercisesMenu } from './components/Menu'
 import { MainMenu } from './components/Menu/MainMenu'
 import { Menu } from './components/Menu/Menu'
 import { CarouselPage } from './pages/CarouselPage'
@@ -31,7 +32,8 @@ const App = () => {
           <Routes>
             <Route path="play" element={<Game />} />
             <Route path=":menu" element={<Menu />}></Route>
-            <Route path="carousel/:topic" element={<CarouselPage />} />
+            <Route path="carousel/:lesson" element={<CarouselPage />} />
+            <Route path="submenu/:type" element={<ExercisesMenu />} />
             <Route path="" element={<MainMenu />} />
             <Route path="back" element={<Navigate to={previousPath} />} />
             <Route path="*" element={<Navigate to="/" replace />} />

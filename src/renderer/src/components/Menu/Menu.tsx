@@ -1,8 +1,8 @@
+import { mainMenuItems } from '@renderer/store'
 import { MenuItemType } from '@shared/models'
+import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { MenuItem } from './MenuItem'
-import { useEffect, useState } from 'react'
-import { mainMenuItems } from '@renderer/store'
 
 type MenuProps = {
   title: string
@@ -27,7 +27,7 @@ export const Menu = () => {
         <h1 className="text-4xl">{title}</h1>
         <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-5 w-full md:max-w-[1220px] md:px-5 overflow-hidden">
           {menuItems.map(({ id, title, description, image, lesson }) => (
-            <Link key={id} to={`/carousel/${lesson}`}>
+            <Link key={id} to={menu === 'practice' ? `/submenu/${lesson}` : `/carousel/${lesson}`}>
               <MenuItem
                 className={menuItemStyles}
                 title={title}

@@ -15,6 +15,7 @@ export const ExercisesMenu = () => {
   useEffect(() => {
     const item = types.find((item) => item.code === type)
     const exercisesByType = exercises.filter((exercise) => exercise.type.code === item?.code)
+    console.log(exercisesByType)
     setExercisesByType(exercisesByType)
   }, [type])
 
