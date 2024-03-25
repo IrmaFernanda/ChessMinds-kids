@@ -30,13 +30,17 @@ export const Piece = ({ piece: { type, color }, position }: PieceProps) => {
     loadImage()
   }, [type, color])
 
+  const opacityStyle = {
+    opacity: isDragging ? 0 : 1
+  }
+
   return (
     <>
-      <DragPreviewImage connect={preview} src={pieceImg} />
+      {/* <DragPreviewImage connect={preview} src={pieceImg} /> */}
       <div
         className="cursor-grab w-full h-full flex items-center justify-center"
         ref={drag}
-        style={{ opacity: isDragging ? 0 : 1 }}
+        style={{ ...opacityStyle }}
       >
         {pieceImg && <img src={pieceImg} alt="" className="max-w-full max-h-full" />}
       </div>

@@ -14,8 +14,13 @@ export const Promote = ({ promotion: { from, to, color } }: PromoteProps) => {
     const loadImages = async () => {
       const sources = await Promise.all(
         promotionPieces.map(async (p) => {
-          const imageModule = await import(`@/assets/pieces/${color}${p}.png`)
-          return imageModule.default
+          const imageModule = await Promise.all([
+            import(`../../assets/pieces/${color}${p}.png`)
+              .then((module) => module.default)
+              .catch((error) => console.error('Error loading image:', error))
+          ]).then((module) => module[0])
+          console.log('imageModule', imageModule)
+          return imageModule
         })
       )
       setImageSources(sources)
