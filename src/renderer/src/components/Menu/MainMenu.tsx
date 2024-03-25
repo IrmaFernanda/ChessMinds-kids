@@ -1,9 +1,9 @@
+import { mainMenuItems } from '@renderer/store'
 import { MainMenuItemType } from '@shared/models'
 import { ComponentProps } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { twMerge } from 'tailwind-merge'
 import { MainMenuItem } from './MainMenuItem'
-import { mainMenuItems } from '@renderer/store'
 
 type MainMenuProps = ComponentProps<'section'>
 
@@ -26,7 +26,9 @@ export const MainMenu = ({ className, ...props }: MainMenuProps) => {
         {...props}
       >
         <div className=" flex flex-col md:flex-row w-full items-center justify-between md:max-w-[1220px]">
-          <section className="w-1/2 flex justify-center">Logo</section>
+          <section className="w-1/2 flex justify-center">
+          <img src="/src/assets/pictures/logo.png"/>
+          </section>
           <section className="w-1/2 flex justify-center">
             <div className={`grid grid-cols-1 gap-5 w-full sm:w-fit `}>
               {mainMenuItems.map((item) => (

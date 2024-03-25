@@ -1,33 +1,25 @@
-import { BackButton } from '@renderer/components/Button/BackButton'
-import Image from '@renderer/components/Image'
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import ReactSwipe from 'react-swipe'
+import Image from '@renderer/components/Image';
+import importAllImages from '@renderer/utils/importImages';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import ReactSwipe from 'react-swipe';
 
 export const CarouselPage = () => {
   const { lesson } = useParams()
-  const [images, setImages] = useState<string[]>([])
+  const [images, setImages] = useState<unknown[]>([])
   let reactSwipeEl
-  const nameImages = ['wk', 'wq', 'wr', 'wb', 'wn', 'wp']
 
   useEffect(() => {
-    const loadImage = async () => {
-      try {
-        const module: string[] = await Promise.all(
-          nameImages.map((image) =>
-            import(`@/assets/pieces/${image}.png`)
-              .then((module) => module.default)
-              .catch((error) => console.error('Error loading image:', error))
-          )
-        )
-        setImages(module)
-      } catch (error) {
-        console.error('Error loading image:', error)
-      }
-    }
+    const loadImages = async () => {
+      console.log("Nombre carpeta:", lesson)
+      const importedImages = await importAllImages(lesson);
+      console.log(importedImages.length)
+      console.log(importedImages)
+      setImages(importedImages)
+    };
+    loadImages();
+  }, []);
 
-    loadImage()
-  }, [])
 
   return (
     <section className="h-full flex items-center">
@@ -40,9 +32,8 @@ export const CarouselPage = () => {
           {images.map((image, i) => (
             <div key={i} className="w-full h-full flex items-center justify-center">
               <Image
-                key={image}
                 className={'h-full'}
-                src={image}
+                src={String(image)}
                 alt="slider-1"
                 height={400}
                 width={710}
