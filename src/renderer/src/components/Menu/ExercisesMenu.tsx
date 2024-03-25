@@ -1,8 +1,9 @@
 import { exercises, types } from '@renderer/store/exercises'
 import { Exercise } from '@shared/models'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { MenuItem } from './MenuItem'
+
 
 export const ExercisesMenu = () => {
   const [title, setTitle] = useState('')
@@ -23,14 +24,33 @@ export const ExercisesMenu = () => {
 
   return (
     <>
-      <section className="min-h-lvh w-full flex flex-col items-center justify-center gap-10">
-        <h1 className="text-4xl">{title}</h1>
-        <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-5 w-full md:max-w-[1220px] md:px-5 overflow-hidden">
-          {exercisesByType.map((exercise) => (
-            <MenuItem className={menuItemStyles} key={exercise.code} title={exercise.name} />
-          ))}
-        </div>
-      </section>
+      <div className=" flex flex-col md:flex-row w-full items-start justify-between overflow-hidden">
+        <section className="min-h-lvh w-1/3 flex flex-col items-start justify-center">
+          <img src="/src/assets/pictures/nivel_1.png"/>
+          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-5 w-full md:max-w-[1220px] md:px-5 overflow-hidden">
+              {exercisesByType.map((exercise) => (
+                <MenuItem className={menuItemStyles} key={exercise.code} title={exercise.name} />
+              ))}
+            </div>
+        </section>
+        <section className="min-h-lvh w-1/3 flex flex-col items-center justify-center">
+            <img src="/src/assets/pictures/nivel_2.png"/>
+            <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-5 w-full md:max-w-[1220px] md:px-5 overflow-hidden">
+              {exercisesByType.map((exercise) => (
+                <MenuItem className={menuItemStyles} key={exercise.code} title={exercise.name} />
+              ))}
+            </div>
+        </section>
+        <section className="min-h-lvh w-1/3 flex flex-col items-center justify-center">
+            <img src="/src/assets/pictures/nivel_3.png"/>
+            <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-5 w-full md:max-w-[1220px] md:px-5 overflow-hidden">
+              {exercisesByType.map((exercise) => (
+                <MenuItem className={menuItemStyles} key={exercise.code} title={exercise.name} />
+              ))}
+            </div>
+        </section> 
+      </div>     
     </>
   )
 }
+

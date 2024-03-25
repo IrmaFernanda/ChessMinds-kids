@@ -59,6 +59,7 @@ export type ExerciseType = {
 export type Exercise = {
   id: string
   code: string
+  level: '1' | '2' |'3'
   type: ExerciseType
   name: string
   color: 'w' | 'b'
