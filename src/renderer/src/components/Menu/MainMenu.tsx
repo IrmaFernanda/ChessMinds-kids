@@ -32,7 +32,7 @@ export const MainMenu = ({ className, ...props }: MainMenuProps) => {
                   <MainMenuItem className={mainMenuItemStyles} title={item.title} />
                 </Link>
               ))}
-              <button onClick={() => navigate(`/menu/practice/descubierta`)}>Ejemplo</button>
+              <button onClick={() => navigate(`/practice`)}>Ejemplo</button>
             </div>
           </section>
         </div>
