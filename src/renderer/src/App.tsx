@@ -1,12 +1,12 @@
+import { useEffect } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { Content, Header, RootLayout } from './components'
+import { BackButton } from './components/Button/BackButton'
 import { ExitButton } from './components/Button/ExitButton'
 import { MainMenu } from './components/Menu/MainMenu'
 import { Menu } from './components/Menu/Menu'
 import { CarouselPage } from './pages/CarouselPage'
 import Game from './pages/Game'
-import { BackButton } from './components/Button/BackButton'
-import { useEffect } from 'react'
 
 const App = () => {
   const location = useLocation()
@@ -37,9 +37,9 @@ const App = () => {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Content>
-      </RootLayout>
+      </RootLayout> 
     </>
-  )
+  )  
 }
 export default App
 
