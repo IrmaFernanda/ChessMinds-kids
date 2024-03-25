@@ -56,7 +56,14 @@ export const menuPieces: MenuItemType[] = [
     description: `Enroque, peón al paso, coronación`,
     image: `wp`,
     lesson: `especiales`
-  }
+  },
+  {
+    id: 'tablero',
+    title: 'El Tablero',
+    description: 'Es sonde se juega',
+    image: 'wp',
+    lesson: 'tablero'
+  },
 ]
 
 export const menuTutorial: MenuItemType[] = [
@@ -109,7 +116,7 @@ export const mainMenuItems: MainMenuItemType[] = [
   },
   {
     id: `aprender`,
-    title: `TUTORIAL DE PIEZAS`,
+    title: `TUTORIAL`,
     menuItems: menuPieces,
     path: `learn`
   },
@@ -122,7 +129,7 @@ export const mainMenuItems: MainMenuItemType[] = [
   {
     id: `practicar`,
     title: `PRACTICA LO APRENDIDO`,
-    menuItems: [],
+    menuItems: menuTutorial,
     path: `practice`
   }
 ]
