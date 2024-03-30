@@ -3,3 +3,10 @@ dist
 out
 .DS_Store
 *.log*
+git-sim_media
+
+# lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lockb

@@ -39,9 +39,9 @@ const App = () => {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Content>
-      </RootLayout> 
+      </RootLayout>
     </>
-  )  
+  )
 }
 export default App
 

@@ -1,10 +1,15 @@
-type FilesProps = { files: string[] }
+import { ComponentProps } from 'react'
+import { twMerge } from 'tailwind-merge'
 
-export const Files = ({ files }: FilesProps) => {
+type FilesProps = { files: string[] } & ComponentProps<'div'>
+
+export const Files = ({ files, className, ...props }: FilesProps) => {
   return (
-    <div className="flex col-span-2 items-center justify-around h-.25-100px">
+    <div className={twMerge(className, 'flex justify-around w-full')} {...props}>
       {files.map((file) => (
-        <span key={`rank${file}`}>{file}</span>
+        <span className="flex justify-center" key={`rank${file}`}>
+          {file}
+        </span>
       ))}
     </div>
   )
