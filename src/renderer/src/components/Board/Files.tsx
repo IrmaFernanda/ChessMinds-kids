@@ -2,9 +2,11 @@ type FilesProps = { files: string[] }
 
 export const Files = ({ files }: FilesProps) => {
   return (
-    <div className="flex col-span-2 items-center justify-around h-.25-100px">
+    <div className="flex justify-around w-full">
       {files.map((file) => (
-        <span key={`rank${file}`}>{file}</span>
+        <span className="flex justify-center" key={`rank${file}`}>
+          {file}
+        </span>
       ))}
     </div>
   )

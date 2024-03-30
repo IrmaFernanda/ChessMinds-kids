@@ -2,6 +2,8 @@ import { PieceType } from '@shared/models'
 import { BoardSquare } from './BoardSquare'
 import { useEffect, useState } from 'react'
 import { getCharacter } from '@renderer/helper'
+import { Ranks } from './Ranks'
+import { Files } from './Files'
 
 type BoardProps = { board: PieceType[]; turn: string }
 
@@ -37,12 +39,19 @@ export const Board = ({ board, turn }: BoardProps) => {
     .map((_, i) => getCharacter(i))
 
   return (
-    <section className="flex flex-wrap h-full w-full">
-      {currBoard.map((piece, i) => (
-        <div key={i} className="w-[12.5%] h-[12.5%]">
-          <BoardSquare piece={piece} black={isBack(i)} position={getPosition(i)} />
-        </div>
-      ))}
-    </section>
+    <div
+      className="w-full h-full grid"
+      style={{ gridTemplateColumns: 'calc(.25*100px) calc(8*100px)' }}
+    >
+      <Ranks ranks={ranks} />
+      <section className="flex flex-wrap h-full w-full">
+        {currBoard.map((piece, i) => (
+          <div key={i} className="w-[12.5%] h-[12.5%]">
+            <BoardSquare piece={piece} black={isBack(i)} position={getPosition(i)} />
+          </div>
+        ))}
+        <Files files={files} />
+      </section>
+    </div>
   )
 }
