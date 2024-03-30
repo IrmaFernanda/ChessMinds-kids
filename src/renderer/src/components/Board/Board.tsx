@@ -43,14 +43,14 @@ export const Board = ({ board, turn }: BoardProps) => {
       className="w-full h-full grid"
       style={{ gridTemplateColumns: 'calc(.25*100px) calc(8*100px)' }}
     >
-      <Ranks ranks={ranks} />
+      <Ranks className="text-white" ranks={ranks} />
       <section className="flex flex-wrap h-full w-full">
         {currBoard.map((piece, i) => (
           <div key={i} className="w-[12.5%] h-[12.5%]">
             <BoardSquare piece={piece} black={isBack(i)} position={getPosition(i)} />
           </div>
         ))}
-        <Files files={files} />
+        <Files className="text-white" files={files} />
       </section>
     </div>
   )
