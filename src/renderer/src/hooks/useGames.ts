@@ -1,5 +1,5 @@
 import { gameSubject, initGame, loadExercise } from '@renderer/services/gameService'
-import { exercises } from '@renderer/store/exercises'
+import { exercises } from '@renderer/store'
 import { Exercise, GameType, PieceType } from '@shared/models'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
