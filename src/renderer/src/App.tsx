@@ -8,6 +8,8 @@ import { MainMenu } from './components/Menu/MainMenu'
 import { Menu } from './components/Menu/Menu'
 import { CarouselPage } from './pages/CarouselPage'
 import Game from './pages/Game'
+import { GameProvider } from './context/GameProvider'
+import { SnackbarProvider } from 'notistack'
 
 const App = () => {
   const location = useLocation()
@@ -30,10 +32,19 @@ const App = () => {
         </Header>
         <Content className="border-l bg-violet-300/10 border-l-black/20">
           <Routes>
-            <Route path="play" element={<Game />} />
             <Route path=":menu" element={<Menu />}></Route>
             <Route path="carousel/:lesson" element={<CarouselPage />} />
             <Route path="submenu/:type" element={<ExercisesMenu />} />
+            <Route
+              path="play/:exerciseId"
+              element={
+                <SnackbarProvider>
+                  <GameProvider>
+                    <Game />
+                  </GameProvider>
+                </SnackbarProvider>
+              }
+            />
             <Route path="" element={<MainMenu />} />
             <Route path="back" element={<Navigate to={previousPath} />} />
             <Route path="*" element={<Navigate to="/" replace />} />

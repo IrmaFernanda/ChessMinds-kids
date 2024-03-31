@@ -1,5 +1,5 @@
 export type GameType = {
-  board: PieceType[]
+  board: PieceType[][]
   isGameOver: boolean
   pendingPromotion: MoveType | undefined
   turn: string
@@ -52,6 +52,7 @@ export type MainMenuItemType = {
 }
 
 export type ExerciseType = {
+  id: string
   code: string
   name: string
 }
@@ -59,10 +60,19 @@ export type ExerciseType = {
 export type Exercise = {
   id: string
   code: string
-  level: '1' | '2' |'3'
+  level: '1' | '2' | '3'
   type: ExerciseType
   name: string
   color: 'w' | 'b'
   initPosition: string
-  sequence: string[]
+  moves: Move[]
+}
+
+export type Move = {
+  from: string
+  to: string
+  response?: {
+    from: string
+    to: string
+  }
 }

@@ -1,36 +1,10 @@
 import { Board } from '@/components/Board'
-import { BackButton } from '@renderer/components/Button/BackButton'
-import { gameSubject, initGame, resetGame } from '@renderer/services/gameService'
-import { GameType, PieceType } from '@shared/models'
-import { useEffect, useState } from 'react'
-import { Subscription } from 'rxjs'
-import { useParams } from 'react-router-dom'
+import { resetGame } from '@renderer/services/gameService'
+import { useContext } from 'react'
+import GameContext from '@renderer/context/GameContext'
 
 const Game = () => {
-  const { exercise } = useParams()
-  const [board, setBoard] = useState<PieceType[]>([])
-  const [isGameOver, setIsGameOver] = useState<boolean>()
-  const [result, setResult] = useState<string | null>()
-  const [turn, setTurn] = useState<string>('')
-
-  useEffect(() => {
-    initGame()
-    const subscribe: Subscription = gameSubject.subscribe({
-      next: (game: GameType | string) => {
-        if (typeof game === 'string') {
-          console.log('Error:', game)
-          return
-        }
-        const { board, isGameOver, result, turn }: GameType = game
-        setBoard(board)
-        setIsGameOver(isGameOver)
-        setResult(result)
-        setTurn(turn)
-      }
-    })
-    return () => subscribe.unsubscribe()
-  }, [])
-
+  const { board, isGameOver, result, turn, color } = useContext(GameContext)
   return (
     <div className="min-h-lvh flex items-center justify-center bg-[#222222]">
       {isGameOver && (
@@ -50,11 +24,14 @@ const Game = () => {
         </h2>
       )}
       <div className="h-[800px] w-[800px] flex items-center justify-center">
-        <Board board={board} turn={turn} />
+        <Board board={board} color={color} />
       </div>
       {!isGameOver && (
-        <h2 className="" style={{ writingMode: 'vertical-lr', textOrientation: 'upright' }}>
-          {turn}
+        <h2
+          className="font-sans p-[30px] text-white"
+          style={{ writingMode: 'vertical-lr', textOrientation: 'upright' }}
+        >
+          JUEGAN {turn}
         </h2>
       )}
       {result && (
