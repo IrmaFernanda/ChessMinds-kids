@@ -2,7 +2,7 @@ import { Exercise, PieceType } from '@shared/models'
 import { createContext } from 'react'
 
 export interface GameContextType {
-  board: PieceType[]
+  board: PieceType[][]
   isGameOver?: boolean
   result?: string | null
   turn: string
