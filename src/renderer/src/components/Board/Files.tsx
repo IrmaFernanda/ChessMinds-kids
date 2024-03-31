@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react'
+import { ComponentProps, useEffect } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 type FilesProps = { files: string[] } & ComponentProps<'div'>

@@ -5,14 +5,14 @@ import { getCharacter } from '@renderer/helper'
 import { Ranks } from './Ranks'
 import { Files } from './Files'
 
-type BoardProps = { board: PieceType[]; turn: string; color: string }
+type BoardProps = { board: PieceType[]; color: string }
 
-export const Board = ({ board, turn, color }: BoardProps) => {
+export const Board = ({ board, color }: BoardProps) => {
   const [currBoard, setCurrBoard] = useState<PieceType[]>([])
 
   useEffect(() => {
     setCurrBoard(color === 'w' ? board.flat() : board.flat().reverse())
-  }, [board, turn, color])
+  }, [board])
 
   const getXYPosition = (i: number) => {
     const x = color === 'w' ? i % 8 : Math.abs((i % 8) - 7)

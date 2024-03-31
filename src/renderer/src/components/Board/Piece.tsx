@@ -1,6 +1,6 @@
 import { PieceType } from '@shared/models'
 import { useEffect, useState } from 'react'
-import { useDrag, DragPreviewImage } from 'react-dnd'
+import { useDrag } from 'react-dnd'
 
 type PieceProps = { piece: PieceType; position: string }
 

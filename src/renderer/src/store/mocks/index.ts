@@ -63,7 +63,7 @@ export const menuPieces: MenuItemType[] = [
     description: 'Es sonde se juega',
     image: 'wp',
     lesson: 'tablero'
-  },
+  }
 ]
 
 export const menuTutorial: MenuItemType[] = [
