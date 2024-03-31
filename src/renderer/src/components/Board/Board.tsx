@@ -1,11 +1,11 @@
-import { PieceType } from '@shared/models'
-import { BoardSquare } from './BoardSquare'
-import { useEffect, useState } from 'react'
 import { getCharacter } from '@renderer/helper'
-import { Ranks } from './Ranks'
+import { PieceType } from '@shared/models'
+import { useEffect, useState } from 'react'
+import { BoardSquare } from './BoardSquare'
 import { Files } from './Files'
+import { Ranks } from './Ranks'
 
-type BoardProps = { board: PieceType[]; color: string }
+type BoardProps = { board: PieceType[][]; color: string }
 
 export const Board = ({ board, color }: BoardProps) => {
   const [currBoard, setCurrBoard] = useState<PieceType[]>([])
