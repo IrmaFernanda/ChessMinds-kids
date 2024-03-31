@@ -23,7 +23,7 @@ export const MainMenu = ({ className, ...props }: MainMenuProps) => {
       >
         <div className=" flex flex-col md:flex-row w-full items-center justify-between md:max-w-[1220px]">
           <section className="w-1/2 flex justify-center">
-          <img src="/src/assets/pictures/logo.png"/>
+            <img src="/src/assets/pictures/logo.png" />
           </section>
           <section className="w-1/2 flex justify-center">
             <div className={`grid grid-cols-1 gap-5 w-full sm:w-fit `}>
@@ -32,7 +32,6 @@ export const MainMenu = ({ className, ...props }: MainMenuProps) => {
                   <MainMenuItem className={mainMenuItemStyles} title={item.title} />
                 </Link>
               ))}
-              <button onClick={() => navigate(`/practice`)}>Ejemplo</button>
             </div>
           </section>
         </div>
