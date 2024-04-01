@@ -10,6 +10,8 @@ import { CarouselPage } from './pages/CarouselPage'
 import Game from './pages/Game'
 import { GameProvider } from './context/GameProvider'
 import { SnackbarProvider } from 'notistack'
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 
 const App = () => {
   const location = useLocation()
@@ -40,7 +42,9 @@ const App = () => {
               element={
                 <SnackbarProvider>
                   <GameProvider>
-                    <Game />
+                    <DndProvider backend={HTML5Backend}>
+                      <Game />
+                    </DndProvider>
                   </GameProvider>
                 </SnackbarProvider>
               }

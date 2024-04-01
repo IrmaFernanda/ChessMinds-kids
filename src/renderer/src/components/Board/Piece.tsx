@@ -1,15 +1,16 @@
 import { PieceType } from '@shared/models'
 import { useEffect, useState } from 'react'
-import { useDrag } from 'react-dnd'
+import { DragPreviewImage, useDrag } from 'react-dnd'
 
 type PieceProps = { piece: PieceType; position: string }
 
 export const Piece = ({ piece: { type, color }, position }: PieceProps) => {
-  const [{ isDragging }, drag, preview] = useDrag({
+  const [{ isDragging }, drag, dragPreview] = useDrag({
+    type: 'piece',
     item: { type: 'piece', id: `${position}.${color}.${type}` },
-    collect: (monitor) => {
-      return { isDragging: !!monitor.isDragging() }
-    }
+    collect: (monitor) => ({
+      isDragging: !!monitor.isDragging()
+    })
   })
   const [pieceImg, setPieceImg] = useState<string>('')
 
@@ -36,7 +37,7 @@ export const Piece = ({ piece: { type, color }, position }: PieceProps) => {
 
   return (
     <>
-      {/* <DragPreviewImage connect={preview} src={pieceImg} /> */}
+      {/* <DragPreviewImage connect={dragPreview} src={pieceImg} /> */}
       <div
         className="cursor-grab w-full h-full flex items-center justify-center"
         ref={drag}
