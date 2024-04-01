@@ -49,9 +49,12 @@ export const Board = ({ board, color }: BoardProps) => {
           .map((_, i) => getCharacter(7 - i))
 
   return (
-    <div className="h-full grid" style={{ gridTemplateColumns: 'calc(.25*100px) calc(8*100px)' }}>
+    <div
+      className="h-[600px] w-full grid"
+      style={{ gridTemplateColumns: 'calc(.25*100px) calc(8*100px)' }}
+    >
       <Ranks className="text-white" ranks={ranks} />
-      <section className="flex flex-wrap h-full w-full">
+      <section className="flex flex-wrap h-[600px] w-[600px]">
         {currBoard.map((piece, i) => (
           <div key={i} className="w-[12.5%] h-[12.5%]">
             <BoardSquare piece={piece} black={isBack(i)} position={getPosition(i)} />
