@@ -7,23 +7,7 @@ const Game = () => {
   const { board, isGameOver, result, turn, color } = useContext(GameContext)
   return (
     <div className="min-h-lvh flex items-center justify-center bg-[#222222]">
-      {isGameOver && (
-        <h2
-          className="font-sans p-[10px] text-white"
-          style={{ writingMode: 'vertical-lr', textOrientation: 'upright' }}
-        >
-          GAME OVER
-          <button onClick={resetGame}>
-            <span
-              className="mt-[20px] cursor-pointer bg-[#3F3F3F] rounded-[10px]"
-              style={{ border: '2px solid white' }}
-            >
-              New Game
-            </span>
-          </button>
-        </h2>
-      )}
-      <div className="h-[800px] w-[800px] flex items-center justify-center">
+      <div className="h-fit w-fit flex items-center justify-center">
         <Board board={board} color={color} />
       </div>
       {!isGameOver && (

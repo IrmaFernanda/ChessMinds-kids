@@ -49,10 +49,7 @@ export const Board = ({ board, color }: BoardProps) => {
           .map((_, i) => getCharacter(7 - i))
 
   return (
-    <div
-      className="w-full h-full grid"
-      style={{ gridTemplateColumns: 'calc(.25*100px) calc(8*100px)' }}
-    >
+    <div className="h-full grid" style={{ gridTemplateColumns: 'calc(.25*100px) calc(8*100px)' }}>
       <Ranks className="text-white" ranks={ranks} />
       <section className="flex flex-wrap h-full w-full">
         {currBoard.map((piece, i) => (
