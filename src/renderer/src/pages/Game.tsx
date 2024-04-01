@@ -2,12 +2,21 @@ import { Board } from '@/components/Board'
 import { resetGame } from '@renderer/services/gameService'
 import { useContext } from 'react'
 import GameContext from '@renderer/context/GameContext'
+import { Ranks } from '@renderer/components/Board/Ranks'
 
 const Game = () => {
   const { board, isGameOver, result, turn, color } = useContext(GameContext)
+  const ranks =
+    color === 'w'
+      ? Array(8)
+          .fill(0)
+          .map((_, i) => 8 - i)
+      : Array(8)
+          .fill(0)
+          .map((_, i) => i + 1)
   return (
     <div className="min-h-lvh flex items-center justify-center bg-[#222222]">
-      <div className="h-fit w-fit flex items-center justify-center">
+      <div className="h-[600px] w-[600px] flex items-center justify-center">
         <Board board={board} color={color} />
       </div>
       {!isGameOver && (
