@@ -8,7 +8,7 @@ export const BackButton = ({ className, ...props }: ActionButtonProps) => {
 
   return (
     <ActionButton className={className} onClick={handleClick} {...props}>
-      <FaArrowLeft className="w-4 h-4 text-gray-600" />
+      <FaArrowLeft className="w-7 h-7 text-gray-600" />
     </ActionButton>
   )
 }
