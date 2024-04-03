@@ -30,7 +30,6 @@ const App = () => {
               <BackButton className="mb-4 absolute top-7 left-8" />
             </>
           )}
-          <ExitButton className="mb-4 absolute top-7 right-20" size={17} />
         </Header>
         <Content className="border-l bg-violet-300/10 border-l-black/20">
           <Routes>

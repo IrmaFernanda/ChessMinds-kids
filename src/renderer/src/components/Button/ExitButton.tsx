@@ -10,7 +10,7 @@ export const ExitButton = ({ size = 20, ...props }: ActionButtonProps & { size?:
   const cancelButtonRef = useRef(null)
 
   const handleClose = () => {
-     // app.quit()
+    // app.quit()
     setShowConfirm(false)
   }
 
