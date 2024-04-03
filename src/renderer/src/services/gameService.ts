@@ -61,6 +61,7 @@ export const loadExercise = (exerciseToLoad: Exercise) => {
   configurator.exercise = exerciseToLoad
   const exercise = configurator.exercise
   chess.load(exercise.initPosition)
+  updateGame()
 }
 
 export const validMove = (fromPosition: string, position: string): boolean => {
