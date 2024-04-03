@@ -34,7 +34,7 @@ export const useGames = () => {
     setColor(current.color)
     loadExercise(current)
     return () => subscribe.unsubscribe()
-  }, [exerciseId])
+  }, [])
 
   return { board, isGameOver, result, turn, exercise, color }
 }
