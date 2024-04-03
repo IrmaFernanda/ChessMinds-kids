@@ -13,7 +13,7 @@ function createWindow(): void {
     ...(process.platform === 'linux' ? { icon } : {}),
     center: true,
     title: 'ChessMinds',
-    frame: false,
+    // frame: false,
     vibrancy: 'under-window',
     visualEffectState: 'active',
     titleBarStyle: 'hidden',
