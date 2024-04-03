@@ -1,8 +1,8 @@
-import { FaSignOutAlt } from 'react-icons/fa'
-import { ActionButton, ActionButtonProps } from './ActionButton'
-import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
+import { Fragment, useRef, useState } from 'react'
+import { FaSignOutAlt } from 'react-icons/fa'
+import { ActionButton, ActionButtonProps } from './ActionButton'
 
 export const ExitButton = ({ size = 20, ...props }: ActionButtonProps & { size?: number }) => {
   const [showConfirm, setShowConfirm] = useState(false)
@@ -10,7 +10,7 @@ export const ExitButton = ({ size = 20, ...props }: ActionButtonProps & { size?:
   const cancelButtonRef = useRef(null)
 
   const handleClose = () => {
-    // app.quit()
+     // app.quit()
     setShowConfirm(false)
   }
 
@@ -21,7 +21,7 @@ export const ExitButton = ({ size = 20, ...props }: ActionButtonProps & { size?:
   return (
     <>
       <ActionButton onClick={handleClick} {...props}>
-        <FaSignOutAlt size={size} className="text-gray-600" />
+        <FaSignOutAlt size={size} className="w-7 h-7 text-gray-600" />
       </ActionButton>
       <Transition.Root show={showConfirm} as={Fragment}>
         <Dialog

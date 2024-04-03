@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ReactSwipe from 'react-swipe'
 
+
 export const CarouselPage = () => {
   const { lesson } = useParams()
   const [numberImages, setNumberImages] = useState<number>(0)
@@ -44,11 +45,15 @@ export const CarouselPage = () => {
             </div>
           ))}
         </ReactSwipe>
-        <div>
-          <button onClick={() => reactSwipeEl.next()}>Siguiente</button>
-          <button onClick={() => reactSwipeEl.prev()}>Anterior</button>
+        <div className='inline-flex w-full justify-center'>
+          <div className="inline-flex w-full justify-center rounded-md bg-cyan-600 px-6 py-4 text-xl font-semibold text-white shadow-sm hover:bg-teal-500 sm:ml-0 sm:w-1/4">
+            <button onClick={() => reactSwipeEl.prev()}>ANTERIOR</button>         
+          </div>
+          <div className="inline-flex w-frll justify-center rounded-md bg-cyan-600 px-6 py-4 text-xl font-semibold text-white shadow-sm hover:bg-teal-500 sm:ml-9 sm:w-1/4">
+            <button onClick={() => reactSwipeEl.next()}>SIGUIENTE</button>
+          </div>
         </div>
       </div>
     </section>
-  )
+  )  
 }

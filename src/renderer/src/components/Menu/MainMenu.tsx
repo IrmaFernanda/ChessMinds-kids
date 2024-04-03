@@ -16,7 +16,7 @@ export const MainMenu = ({ className, ...props }: MainMenuProps) => {
     const loadImage = async () => {
       try {
         const module: string | void = await Promise.all([
-          import(`../../assets/pictures/logo.png`)
+          import(`../../assets/pictures/chess.png`)
             .then((module) => module.default)
             .catch((error) => console.error('Error loading image:', error))
         ]).then((module) => module[0])
