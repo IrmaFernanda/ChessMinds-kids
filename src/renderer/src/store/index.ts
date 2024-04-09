@@ -2,6 +2,27 @@ import { Exercise, ExerciseType, Level, MainMenuItemType, MenuItemType } from '@
 
 export const menuPieces: MenuItemType[] = [
   {
+    id: 'tablero',
+    title: 'El Tablero',
+    description: 'El campo de batalla donde se despliega la estrategia y la táctica.',
+    image: 'wp',
+    lesson: 'tablero'
+  },
+  {
+    id: `rey`,
+    title: `El Rey`,
+    description: `La pieza más importante, cuya protección es la prioridad absoluta.`,
+    image: `wk`,
+    lesson: `rey`
+  },
+  {
+    id: `dama`,
+    title: `La Dama`,
+    description: `Maestra del tablero, decisiva en la conquista o protección del rey`,
+    image: `wq`,
+    lesson: `dama`
+  },
+  {
     id: `torre`,
     title: `La Torre`,
     description: `Dominante en líneas rectas, esencial para controlar columnas y filas.`,
@@ -14,20 +35,6 @@ export const menuPieces: MenuItemType[] = [
     description: `Habilidoso en diagonales, complementa la acción de otras piezas.`,
     image: `wb`,
     lesson: `alfil`
-  },
-  {
-    id: `dama`,
-    title: `La Dama`,
-    description: `Poderosa y versátil, clave en ataques y defensas.`,
-    image: `wq`,
-    lesson: `dama`
-  },
-  {
-    id: `rey`,
-    title: `El Rey`,
-    description: `El más importante, se protección es prioridad.`,
-    image: `wk`,
-    lesson: `rey`
   },
   {
     id: `caballo`,
@@ -57,13 +64,6 @@ export const menuPieces: MenuItemType[] = [
     image: `wp`,
     lesson: `especiales`
   },
-  {
-    id: 'tablero',
-    title: 'El Tablero',
-    description: 'El campo de batalla donde se despliega la estrategia y la táctica.',
-    image: 'wp',
-    lesson: 'tablero'
-  }
 ]
 
 export const menuTutorial: MenuItemType[] = [
@@ -2196,8 +2196,1290 @@ export const exercises: Exercise[] = [
     }
   ]
 },
-
+//PIEZA ATRAPADA ->3
+{
+  id: '89',
+  code: '89',
+  level: levels[0],
+  type: types[3],
+  name: '1',
+  color: 'w',
+  initPosition: '1r3rk1/p5bp/3p2p1/2pPp1Bq/3n4/1P1B3P/P2Q2PK/2R2R2 w - - 0 1',
+  moves: [
+    {
+      from: 'g2',
+      to: 'g4',
+      response: {
+        from: 'h5',
+        to: 'g5',
+      }
+    },
+    {
+      from: 'd2',
+      to: 'g5',
+    }
+  ]
+},
+{
+  id: '90',
+  code: '90',
+  level: levels[1],
+  type: types[3],
+  name: '1',
+  color: 'w',
+  initPosition: '1r3rk1/p5bp/3p2p1/2pPp3/3n3q/1P1BB2P/P2Q2PK/2R2R2 w - - 0 1',
+  moves: [
+    {
+      from: 'e3',
+      to: 'g5',
+      response: {
+        from: 'h4',
+        to: 'h5',
+      }
+    },
+    {
+      from: 'g2',
+      to: 'g4',
+    }
+  ]
+},
+{
+  id: '91',
+  code: '91',
+  level: levels[2],
+  type: types[3],
+  name: '1',
+  color: 'w',
+  initPosition: '1r3rk1/p5bp/3p2p1/2pPp3/3nq3/1P2B2P/P2QB1PK/2R2R2 w - - 0 1',
+  moves: [
+    {
+      from: 'e2',
+      to: 'd3',
+      response: {
+        from: 'e4',
+        to: 'h4',
+      }
+    },
+    {
+      from: 'e3',
+      to: 'g5',
+      response: {
+        from: 'h4',
+        to: 'h5',
+      }
+    },
+    {
+      from: 'g2',
+      to: 'g4',
+    }
+  ]
+},
+{
+  id: '92',
+  code: '92',
+  level: levels[0],
+  type: types[3],
+  name: '2',
+  color: 'w',
+  initPosition: 'r5k1/1p1b3p/3p4/2nPp3/2P1P3/p4pN1/P1B1KQPq/7R w - - 0 1',
+  moves: [
+    {
+      from: 'f2',
+      to: 'f3',
+    }
+  ]
+},
+{
+  id: '93',
+  code: '93',
+  level: levels[1],
+  type: types[3],
+  name: '2',
+  color: 'w',
+  initPosition: 'r5k1/1p1b3p/3p4/2nPp3/2P1P1p1/p4PN1/P1B1KQPq/1R6 w - - 0 1',
+  moves: [
+    {
+      from: 'b1',
+      to: 'h1',
+      response: {
+        from: 'g4',
+        to: 'f3',
+      }
+    },
+    {
+      from: 'f2',
+      to: 'f3',
+    }
+  ]
+},
+{
+  id: '94',
+  code: '94',
+  level: levels[2],
+  type: types[3],
+  name: '2',
+  color: 'w',
+  initPosition: 'r5k1/1p1b3p/3p3q/2nPp3/2P1P1p1/p4PN1/P1B1KQPr/1R5R w - - 0 1',
+  moves: [
+    {
+      from: 'h1',
+      to: 'h2',
+      response: {
+        from: 'h6',
+        to: 'h2',
+      }
+    },
+    {
+      from: 'b1',
+      to: 'h1',
+      response: {
+        from: 'g4',
+        to: 'f3',
+      }
+    },
+    {
+      from: 'f2',
+      to: 'f3',
+    }
+  ]
+},
+{
+  id: '95',
+  code: '95',
+  level: levels[0],
+  type: types[3],
+  name: '3',
+  color: 'w',
+  initPosition: 'r1bqr1k1/3np1bp/2pp1np1/pp4N1/4P3/P1NPB3/1PPQ1PPP/R4RK1 w - - 0 1',
+  moves: [
+    {
+      from: 'g5',
+      to: 'e6',
+    }
+  ]
+},
+{
+  id: '96',
+  code: '96',
+  level: levels[1],
+  type: types[3],
+  name: '3',
+  color: 'w',
+  initPosition: 'r1bqr3/3npkbp/2pp1np1/pp6/4P3/P1NPBN2/1PPQ1PPP/R4RK1 w - - 0 1',
+  moves: [
+    {
+      from: 'f3',
+      to: 'g5',
+      response: {
+        from: 'f7',
+        to: 'g8',
+      }
+    },
+    {
+      from: 'g5',
+      to: 'e6',
+    }
+  ]
+},
+{
+  id: '97',
+  code: '97',
+  level: levels[2],
+  type: types[3],
+  name: '3',
+  color: 'w',
+  initPosition: 'r1bqr1k1/3nppbp/2pp1np1/pp6/4P3/PBNPBN2/1PPQ1PPP/R4RK1 w - - 0 1',
+  moves: [
+    {
+      from: 'b3',
+      to: 'f7',
+      response: {
+        from: 'g8',
+        to: 'f7',
+      }
+    },
+    {
+      from: 'f3',
+      to: 'g5',
+      response: {
+        from: 'f7',
+        to: 'g8',
+      }
+    },
+    {
+      from: 'g5',
+      to: 'e6',
+    }
+  ]
+},
+{
+  id: '98',
+  code: '98',
+  level: levels[0],
+  type: types[3],
+  name: '4',
+  color: 'w',
+  initPosition: 'rn2k2r/p4p2/4pp1p/1p6/2p3P1/P1N4P/1P1KBP2/7R w - - 0 1',
+  moves: [
+    {
+      from: 'e2',
+      to: 'f3',
+    }
+  ]
+},
+{
+  id: '99',
+  code: '99',
+  level: levels[1],
+  type: types[3],
+  name: '4',
+  color: 'w',
+  initPosition: 'rn2k2r/p4pp1/4pB1p/1p6/2p3P1/P1N4P/1P1bBP2/2K4R w - - 0 1',
+  moves: [
+    {
+      from: 'c1',
+      to: 'd2',
+      response: {
+        from: 'g7',
+        to: 'f6',
+      }
+    },
+    {
+      from: 'e2',
+      to: 'f3',
+    }
+  ]
+},
+{
+  id: '100',
+  code: '100',
+  level: levels[2],
+  type: types[3],
+  name: '4',
+  color: 'w',
+  initPosition: 'rn2k2r/p4pp1/4pq1p/1p6/2pB1bP1/P1N4P/1P1QBP2/2K4R w - - 0 1',
+  moves: [
+    {
+      from: 'd4',
+      to: 'f6',
+      response: {
+        from: 'f4',
+        to: 'd2',
+      }
+    },
+    {
+      from: 'c1',
+      to: 'd2',
+      response: {
+        from: 'g7',
+        to: 'f6',
+      }
+    },
+    {
+      from: 'e2',
+      to: 'f3',
+    }
+  ]
+},
+{
+  id: '101',
+  code: '101',
+  level: levels[0],
+  type: types[3],
+  name: '5',
+  color: 'b',
+  initPosition: 'rn1qk2r/1p3ppb/2p1p2p/p2p4/2P3n1/PP1P1NP1/3NP1BP/R1BQR1K1 b - - 0 1',
+  moves: [
+    {
+      from: 'g4',
+      to: 'e3',
+    }
+  ]
+},
+{
+  id: '102',
+  code: '102',
+  level: levels[1],
+  type: types[3],
+  name: '5',
+  color: 'b',
+  initPosition: 'rn1qk2r/1p3ppb/2p1pn1p/p2p4/2P5/PP1P1NP1/3NPKBP/R1BQR3 b - - 0 1',
+  moves: [
+    {
+      from:'f6',
+      to: 'g4',
+      response: {
+        from: 'f2',
+        to: 'g1',
+      }
+    },
+    {
+      from: 'g4',
+      to: 'e3',
+    }
+  ]
+},
+{
+  id: '103',
+  code: '103',
+  level: levels[2],
+  type: types[3],
+  name: '5',
+  color: 'b',
+  initPosition: 'rn1qk2r/1p3ppb/2p1pn1p/p1bp4/2P5/PP1P1NP1/3NPPBP/R1BQR1K1 b - - 0 1',
+  moves: [
+    {
+      from: 'c5',
+      to: 'f2',
+      response: {
+        from: 'g1',
+        to: 'f2',
+      }
+    },
+    {
+      from:'f6',
+      to: 'g4',
+      response: {
+        from: 'f2',
+        to: 'g1',
+      }
+    },
+    {
+      from: 'g4',
+      to: 'e3',
+    }
+  ]
+},
+{
+  id: '104',
+  code: '104',
+  level: levels[2],
+  type: types[3],
+  name: '6',
+  color: 'w',
+  initPosition: '1k5r/pppr1ppp/1q2p3/5b2/5P2/2QP4/PP2BRPP/2R2K2 w - - 0 1',
+  moves: [
+    {
+      from: 'g2',
+      to: 'g4',
+      response: {
+        from: 'f5',
+        to: 'g6',
+      }
+    },
+    {
+      from:'f4',
+      to: 'f5',
+      response: {
+        from: 'e6',
+        to: 'f5',
+      }
+    },
+    {
+      from: 'g4',
+      to: 'f5',
+    }
+  ]
+},
+{
+  id: '105',
+  code: '105',
+  level: levels[1],
+  type: types[3],
+  name: '6',
+  color: 'w',
+  initPosition: '1k5r/pppr1ppp/1q2p1b1/8/5PP1/2QP4/PP2BRPP/2R2K2 w - - 0 1',
+  moves: [
+    {
+      from:'f4',
+      to: 'f5',
+      response: {
+        from: 'e6',
+        to: 'f5',
+      }
+    },
+    {
+      from: 'g4',
+      to: 'f5',
+    }
+  ]
+},
+{
+  id: '106',
+  code: '106',
+  level: levels[0],
+  type: types[3],
+  name: '6',
+  color: 'w',
+  initPosition: '1k5r/pppr1ppp/1q4b1/5p2/6P1/2QP4/PP2BRPP/2R2K2 w - - 0 1',
+  moves: [
+    {
+      from: 'g4',
+      to: 'f5',
+    }
+  ]
+},
+{
+  id: '107',
+  code: '107',
+  level: levels[2],
+  type: types[3],
+  name: '7',
+  color: 'w',
+  initPosition: 'r1bqr1k1/pppnppbp/6p1/3nN3/3P4/2P2N2/PP2BPPP/R1BQK2R w - - 0 1',
+  moves: [
+    {
+      from: 'e5',
+      to: 'f7',
+      response: {
+        from: 'g8',
+        to: 'f7',
+      }
+    },
+    {
+      from:'f3',
+      to: 'g5',
+      response: {
+        from: 'f7',
+        to: 'g8',
+      }
+    },
+    {
+      from: 'g5',
+      to: 'e6',
+    }
+  ]
+},
+{
+  id: '108',
+  code: '108',
+  level: levels[1],
+  type: types[3],
+  name: '7',
+  color: 'w',
+  initPosition: 'r1bqr3/pppnpkbp/6p1/3n4/3P4/2P2N2/PP2BPPP/R1BQK2R w - - 0 1',
+  moves: [
+    {
+      from:'f3',
+      to: 'g5',
+      response: {
+        from: 'f7',
+        to: 'g8',
+      }
+    },
+    {
+      from: 'g5',
+      to: 'e6',
+    }
+  ]
+},
+{
+  id: '109',
+  code: '109',
+  level: levels[0],
+  type: types[3],
+  name: '7',
+  color: 'w',
+  initPosition: 'r1bqr1k1/pppnp1bp/6p1/3n2N1/3P4/2P5/PP2BPPP/R1BQK2R w - - 0 1',
+  moves: [
+    {
+      from: 'g5',
+      to: 'e6',
+    }
+  ]
+},
+{
+  id: '110',
+  code: '110',
+  level: levels[2],
+  type: types[3],
+  name: '8',
+  color: 'b',
+  initPosition: 'r4rk1/1Qpq1ppp/pn1b4/8/3P1B2/1PP5/1PN3PP/4RRK1 b - - 0 1',
+  moves: [
+    {
+      from: 'd6',
+      to: 'f4',
+      response: {
+        from: 'f1',
+        to: 'f4',
+      }
+    },
+    {
+      from:'b6',
+      to: 'd5',
+      response: {
+        from: 'f4',
+        to: 'e4',
+      }
+    },
+    {
+      from: 'f8',
+      to: 'b8',
+    }
+  ]
+},
+{
+  id: '111',
+  code: '111',
+  level: levels[1],
+  type: types[3],
+  name: '8',
+  color: 'b',
+  initPosition: 'r4rk1/1Qpq1ppp/pn6/8/3P1R2/1PP5/1PN3PP/4R1K1 b - - 0 1',
+  moves: [
+    {
+      from:'b6',
+      to: 'd5',
+      response: {
+        from: 'f4',
+        to: 'e4',
+      }
+    },
+    {
+      from: 'f8',
+      to: 'b8',
+    }
+  ]
+},
+{
+  id: '112',
+  code: '112',
+  level: levels[0],
+  type: types[3],
+  name: '8',
+  color: 'b',
+  initPosition: 'r4rk1/1Qpq1ppp/p7/3n4/3PR3/1PP5/1PN3PP/4R1K1 b - - 0 1',
+  moves: [
+    {
+      from: 'f8',
+      to: 'b8',
+    }
+  ]
+},
+//DESCUBIERTA -> 2
+{
+  id: '113',
+  code: '113',
+  level: levels[2],
+  type: types[2],
+  name: '1',
+  color: 'b',
+  initPosition: '8/2k5/p5p1/1p5p/3B4/1R1n2P1/PP1r1P1P/6K1 b - - 0 1',
+  moves: [
+    {
+      from: 'd2',
+      to: 'd1',
+      response: {
+        from: 'g1',
+        to: 'g2',
+      }
+    },
+    {
+      from:'d3',
+      to: 'e1',
+      response: {
+        from: 'g2',
+        to: 'f1',
+      }
+    },
+    {
+      from: 'd1',
+      to: 'd4',
+    }
+  ]
+},
+{
+  id: '114',
+  code: '114',
+  level: levels[1],
+  type: types[2],
+  name: '1',
+  color: 'b',
+  initPosition: '8/2k5/p5p1/1p5p/3B4/1R1n2P1/PP3PKP/3r4 b - - 0 1',
+  moves: [
+    {
+      from:'d3',
+      to: 'e1',
+      response: {
+        from: 'g2',
+        to: 'f1',
+      }
+    },
+    {
+      from: 'd1',
+      to: 'd4',
+    }
+  ]
+},
+{
+  id: '115',
+  code: '115',
+  level: levels[0],
+  type: types[2],
+  name: '1',
+  color: 'b',
+  initPosition: '8/2k5/p5p1/1p5p/3B4/1R4P1/PP3P1P/3rnK2 b - - 0 1',
+  moves: [
+    {
+      from: 'd1',
+      to: 'd4',
+    }
+  ]
+},
+{
+  id: '116',
+  code: '116',
+  level: levels[2],
+  type: types[2],
+  name: '2',
+  color: 'b',
+  initPosition: '6k1/5pP1/8/2pb3Q/8/4N2P/r4qPK/4R3 b - - 0 1',
+  moves: [
+    {
+      from: 'f2',
+      to: 'g2',
+      response: {
+        from: 'e3',
+        to: 'g2',
+      }
+    },
+    {
+      from:'a2',
+      to: 'g2',
+      response: {
+        from: 'h2',
+        to: 'h1',
+      }
+    },
+    {
+      from: 'g2',
+      to: 'g5',
+      response: {
+        from: 'h1',
+        to: 'h2',
+      }
+    },
+    {
+      from: 'g5',
+      to: 'h5',
+    }
+  ]
+},
+{
+id: '117',
+code: '117',
+level: levels[1],
+type: types[2],
+name: '2',
+color: 'b',
+initPosition: '6k1/5pP1/8/2pb3Q/8/7P/r5NK/4R3 b - - 0 1',
+moves: [
+  {
+    from:'a2',
+    to: 'g2',
+    response: {
+      from: 'h2',
+      to: 'h1',
+    }
+  },
+  {
+    from: 'g2',
+    to: 'g5',
+    response: {
+      from: 'h1',
+      to: 'h2',
+    }
+  },
+  {
+    from: 'g5',
+    to: 'h5',
+  }
 ]
+},
+{
+  id: '118',
+  code: '118',
+  level: levels[0],
+  type: types[2],
+  name: '2',
+  color: 'b',
+  initPosition: '6k1/5pP1/8/2pb3Q/8/7P/6r1/4R2K b - - 0 1',
+  moves: [
+    {
+      from: 'g2',
+      to: 'g5',
+      response: {
+        from: 'h1',
+        to: 'h2',
+      }
+    },
+    {
+      from: 'g5',
+      to: 'h5',
+    }
+  ]
+  },
+  {
+    id: '119',
+    code: '119',
+    level: levels[2],
+    type: types[2],
+    name: '3',
+    color: 'w',
+    initPosition: '1r4k1/R4bpp/8/1p2p3/8/4QNP1/1q3P1P/6K1 w - - 0 1',
+    moves: [
+      {
+        from: 'a7',
+        to: 'f7',
+        response: {
+          from: 'g8',
+          to: 'f7',
+        }
+      },
+      {
+        from:'f3',
+        to: 'e5',
+        response: {
+          from: 'f7',
+          to: 'e6',
+        }
+      },
+      {
+        from: 'e5',
+        to: 'c6',
+        response: {
+          from: 'e6',
+          to: 'd6',
+        }
+      },
+      {
+        from: 'c6',
+        to: 'b8',
+      }
+    ]
+  },
+  {
+    id: '120',
+    code: '120',
+    level: levels[1],
+    type: types[2],
+    name: '3',
+    color: 'w',
+    initPosition: '1r6/5kpp/8/1p2p3/8/4QNP1/1q3P1P/6K1 w - - 0 1',
+    moves: [
+      {
+        from:'f3',
+        to: 'e5',
+        response: {
+          from: 'f7',
+          to: 'e6',
+        }
+      },
+      {
+        from: 'e5',
+        to: 'c6',
+        response: {
+          from: 'e6',
+          to: 'd6',
+        }
+      },
+      {
+        from: 'c6',
+        to: 'b8',
+      }
+    ]
+  },
+  {
+    id: '121',
+    code: '121',
+    level: levels[0],
+    type: types[2],
+    name: '3',
+    color: 'w',
+    initPosition: '1r6/6pp/4k3/1p2N3/8/4QNP1/1q3P1P/6K1 w - - 0 1',
+    moves: [
+      {
+        from: 'e5',
+        to: 'c6',
+        response: {
+          from: 'e6',
+          to: 'd6',
+        }
+      },
+      {
+        from: 'c6',
+        to: 'b8',
+      }
+    ]
+  },
+  {
+    id: '122',
+    code: '122',
+    level: levels[2],
+    type: types[2],
+    name: '4',
+    color: 'w',
+    initPosition: 'r1b2qk1/pp1p1pp1/2n4p/2pN4/3q1P2/3B4/P1P3PP/R2QK2R w - - 0 1',
+    moves: [
+      {
+        from: 'c2',
+        to: 'c3',
+        response: {
+          from: 'f8',
+          to: 'e8',
+        }
+      },
+      {
+        from:'e1',
+        to: 'f1',
+        response: {
+          from: 'd4',
+          to: 'd5',
+        }
+      },
+      {
+        from: 'd3',
+        to: 'h7',
+        response: {
+          from: 'g8',
+          to: 'h7',
+        }
+      },
+      {
+        from: 'd1',
+        to: 'd5',
+      }
+    ]
+  },
+  {
+    id: '123',
+    code: '123',
+    level: levels[1],
+    type: types[2],
+    name: '4',
+    color: 'w',
+    initPosition: 'r1b1r1k1/pp1p1pp1/2n4p/2pN4/3q1P2/2PB4/P5PP/R2QK2R w - - 0 1',
+    moves: [
+      {
+        from:'e1',
+        to: 'f1',
+        response: {
+          from: 'd4',
+          to: 'd5',
+        }
+      },
+      {
+        from: 'd3',
+        to: 'h7',
+        response: {
+          from: 'g8',
+          to: 'h7',
+        }
+      },
+      {
+        from: 'd1',
+        to: 'd5',
+      }
+    ]
+  },
+  {
+    id: '124',
+    code: '124',
+    level: levels[0],
+    type: types[2],
+    name: '4',
+    color: 'w',
+    initPosition: 'r1b2qk1/pp1p1pp1/2n4p/2pq4/5P2/2PB4/P5PP/R2Q1K1R w - - 0 1',
+    moves: [
+      {
+        from: 'd3',
+        to: 'h7',
+        response: {
+          from: 'g8',
+          to: 'h7',
+        }
+      },
+      {
+        from: 'd1',
+        to: 'd5',
+      }
+    ]
+  },
+  {
+    id: '125',
+    code: '125',
+    level: levels[2],
+    type: types[2],
+    name: '5',
+    color: 'b',
+    initPosition: '7k/1R4pn/3N3p/2p1r1b1/2Pp4/3K1QP1/PP6/3R2q1 b - - 0 1',
+    moves: [
+      {
+        from: 'e5',
+        to: 'e3',
+        response: {
+          from: 'd3',
+          to: 'c2',
+        }
+      },
+      {
+        from:'g1',
+        to: 'h2',
+        response: {
+          from: 'd1',
+          to: 'd2',
+        }
+      },
+      {
+        from: 'h2',
+        to: 'd2',
+        response: {
+          from: 'c2',
+          to: 'd2',
+        }
+      },
+      {
+        from: 'e3',
+        to: 'f3',
+      }
+    ]
+  },
+  {
+    id: '126',
+    code: '126',
+    level: levels[1],
+    type: types[2],
+    name: '5',
+    color: 'b',
+    initPosition: '7k/1R4pn/3N3p/2p3b1/2Pp4/4rQP1/PPK5/3R2q1 b - - 0 1',
+    moves: [
+      {
+        from:'g1',
+        to: 'h2',
+        response: {
+          from: 'd1',
+          to: 'd2',
+        }
+      },
+      {
+        from: 'h2',
+        to: 'd2',
+        response: {
+          from: 'c2',
+          to: 'd2',
+        }
+      },
+      {
+        from: 'e3',
+        to: 'f3',
+      }
+    ]
+  },
+  {
+    id: '127',
+    code: '127',
+    level: levels[0],
+    type: types[2],
+    name: '5',
+    color: 'b',
+    initPosition: '7k/1R4pn/3N3p/2p3b1/2Pp4/4rQP1/PPKR3q/8 b - - 0 1',
+    moves: [
+      {
+        from: 'h2',
+        to: 'd2',
+        response: {
+          from: 'c2',
+          to: 'd2',
+        }
+      },
+      {
+        from: 'e3',
+        to: 'f3',
+      }
+    ]
+  },
+  {
+    id: '128',
+    code: '128',
+    level: levels[2],
+    type: types[2],
+    name: '6',
+    color: 'w',
+    initPosition: 'r4r1k/pp1b2p1/1b3p1B/4nP1Q/8/2Pq1NR1/PP3P1P/R4K2 w - - 0 1',
+    moves: [
+      {
+        from: 'f1',
+        to: 'g2',
+        response: {
+          from: 'd3',
+          to: 'f3',
+        }
+      },
+      {
+        from:'g3',
+        to: 'f3',
+        response: {
+          from: 'd7',
+          to: 'c6',
+        }
+      },
+      {
+        from: 'h6',
+        to: 'f4',
+        response: {
+          from: 'h8',
+          to: 'g8',
+        }
+      },
+      {
+        from: 'f4',
+        to: 'e5',
+      }
+    ]
+  },
+  {
+    id: '129',
+    code: '129',
+    level: levels[1],
+    type: types[2],
+    name: '6',
+    color: 'w',
+    initPosition: 'r4r1k/pp1b2p1/1b3p1B/4nP1Q/8/2P2qR1/PP3PKP/R7 w - - 0 1',
+    moves: [
+      {
+        from:'g3',
+        to: 'f3',
+        response: {
+          from: 'd7',
+          to: 'c6',
+        }
+      },
+      {
+        from: 'h6',
+        to: 'f4',
+        response: {
+          from: 'h8',
+          to: 'g8',
+        }
+      },
+      {
+        from: 'f4',
+        to: 'e5',
+      }
+    ]
+  },
+  {
+    id: '130',
+    code: '130',
+    level: levels[0],
+    type: types[2],
+    name: '6',
+    color: 'w',
+    initPosition: 'r4r1k/pp4p1/1bb2p1B/4nP1Q/8/2P2R2/PP3PKP/R7 w - - 0 1',
+    moves: [
+      {
+        from: 'h6',
+        to: 'f4',
+        response: {
+          from: 'h8',
+          to: 'g8',
+        }
+      },
+      {
+        from: 'f4',
+        to: 'e5',
+      }
+    ]
+  },
+  {
+    id: '132',
+    code: '132',
+    level: levels[2],
+    type: types[2],
+    name: '7',
+    color: 'w',
+    initPosition: '2b2r2/5p1B/3Pp2p/1pp1k3/1n6/4P1R1/q5PP/5QK1 w - - 0 1',
+    moves: [
+      {
+        from: 'f1',
+        to: 'f4',
+        response: {
+          from: 'e5',
+          to: 'd5',
+        }
+      },
+      {
+        from:'h7',
+        to: 'e4',
+        response: {
+          from: 'd5',
+          to: 'c4',
+        }
+      },
+      {
+        from: 'e4',
+        to: 'b1',
+        response: {
+          from: 'c4',
+          to: 'b3',
+        }
+      },
+      {
+        from: 'b1',
+        to: 'a2',
+      }
+    ]
+  },
+  {
+    id: '133',
+    code: '133',
+    level: levels[1],
+    type: types[2],
+    name: '7',
+    color: 'w',
+    initPosition: '2b2r2/5p1B/3Pp2p/1ppk4/1n3Q2/4P1R1/q5PP/6K1 w - - 0 1',
+    moves: [
+      {
+        from:'h7',
+        to: 'e4',
+        response: {
+          from: 'd5',
+          to: 'c4',
+        }
+      },
+      {
+        from: 'e4',
+        to: 'b1',
+        response: {
+          from: 'c4',
+          to: 'b3',
+        }
+      },
+      {
+        from: 'b1',
+        to: 'a2',
+      }
+    ]
+  },
+  {
+    id: '134',
+    code: '134',
+    level: levels[0],
+    type: types[2],
+    name: '7',
+    color: 'w',
+    initPosition: '2b2r2/5p2/3Pp2p/1pp5/1nk1BQ2/4P1R1/q5PP/6K1 w - - 0 1',
+    moves: [
+      {
+        from: 'e4',
+        to: 'b1',
+        response: {
+          from: 'c4',
+          to: 'b3',
+        }
+      },
+      {
+        from: 'b1',
+        to: 'a2',
+      }
+    ]
+  },
+  {
+    id: '135',
+    code: '135',
+    level: levels[2],
+    type: types[2],
+    name: '8',
+    color: 'w',
+    initPosition: 'r4r1k/1pbq2pp/p1p2p2/3p1N2/3PPN2/6Q1/PPP3PP/5R1K w - - 0 1',
+    moves: [
+      {
+        from: 'f4',
+        to: 'g6',
+        response: {
+          from: 'h7',
+          to: 'g6',
+        }
+      },
+      {
+        from: 'g3',
+        to: 'h3',
+        response: {
+          from: 'h8',
+          to: 'g8',
+        }
+      },
+      {
+        from: 'f5',
+        to: 'h6',
+        response: {
+          from: 'g7',
+          to: 'h6',
+        }
+      },
+      {
+        from: 'h3',
+        to: 'd7',
+      }
+    ]
+  },
+  {
+    id: '136',
+    code: '136',
+    level: levels[1],
+    type: types[2],
+    name: '8',
+    color: 'w',
+    initPosition: 'r4r1k/1pbq2p1/p1p2pp1/3p1N2/3PP3/6Q1/PPP3PP/5R1K w - - 0 1',
+    moves: [
+      {
+        from: 'g3',
+        to: 'h3',
+        response: {
+          from: 'h8',
+          to: 'g8',
+        }
+      },
+      {
+        from: 'f5',
+        to: 'h6',
+        response: {
+          from: 'g7',
+          to: 'h6',
+        }
+      },
+      {
+        from: 'h3',
+        to: 'd7',
+      }
+    ]
+  },
+  {
+    id: '137',
+    code: '137',
+    level: levels[0],
+    type: types[2],
+    name: '8',
+    color: 'w',
+    initPosition: 'r4rk1/1pbq2p1/p1p2pp1/3p1N2/3PP3/7Q/PPP3PP/5R1K w - - 0 1',
+    moves: [
+      {
+        from: 'f5',
+        to: 'h6',
+        response: {
+          from: 'g7',
+          to: 'h6',
+        }
+      },
+      {
+        from: 'h3',
+        to: 'd7',
+      }
+    ]
+  },
+
+]//cierre general, no pasar
 
 exercises.forEach((exercise) => {
   exercise.name = `Exercise ${exercise.name}`
